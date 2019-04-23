@@ -32,3 +32,10 @@ HEADERS += \
 
 FORMS += \
         window.ui
+INCLUDEPATH += $$PWD/sdk
+CONFIG(release, debug|release){
+LIBS        += -L$$PWD/sdk/ -lquc
+} else {
+unix {LIBS  += -L$$PWD/sdk/ -lquc}
+else {LIBS  += -L$$PWD/sdk/ -lqucd}
+}
