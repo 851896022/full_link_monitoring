@@ -25,13 +25,22 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        window.cpp
+        window.cpp \
+    UI/main/linkmodel.cpp \
+    UI/main/tittle.cpp \
+    UI/main/sourcemodel.cpp
 
 HEADERS += \
-        window.h
+        window.h \
+    UI/main/linkmodel.h \
+    UI/main/tittle.h \
+    UI/main/sourcemodel.h
 
 FORMS += \
-        window.ui
+        window.ui \
+    UI/main/linkmodel.ui \
+    UI/main/tittle.ui \
+    UI/main/sourcemodel.ui
 INCLUDEPATH += $$PWD/sdk
 CONFIG(release, debug|release){
 LIBS        += -L$$PWD/sdk/ -lquc
@@ -39,3 +48,6 @@ LIBS        += -L$$PWD/sdk/ -lquc
 unix {LIBS  += -L$$PWD/sdk/ -lquc}
 else {LIBS  += -L$$PWD/sdk/ -lqucd}
 }
+
+RESOURCES += \
+    img.qrc
