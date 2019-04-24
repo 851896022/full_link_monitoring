@@ -14,7 +14,8 @@ class LinkModel : public QFrame
 public:
     explicit LinkModel(QWidget *parent = 0);
     ~LinkModel();
-
+    int No=0;
+    void initThis(int No);
 private:
     Ui::LinkModel *ui;
 };

@@ -14,7 +14,8 @@ class SourceModel : public QFrame
 public:
     explicit SourceModel(QWidget *parent = 0);
     ~SourceModel();
-
+    int No;
+    void initThis(int No);
 private:
     Ui::SourceModel *ui;
 };

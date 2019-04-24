@@ -16,7 +16,10 @@
   <property name="styleSheet">
    <string notr="true">#linkModel_1,#linkModel_2
 {
-border-image: url(:/img/img/modelbackground.png);
+border-style: solid; 
+border-width: 5px;
+	border-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0.323864 rgba(84, 100, 255, 0), stop:1 rgba(85, 152, 255, 127))
+
 }</string>
   </property>
   <property name="frameShape">
@@ -27,19 +30,19 @@ border-image: url(:/img/img/modelbackground.png);
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,1,1">
    <property name="spacing">
-    <number>5</number>
+    <number>0</number>
    </property>
    <property name="leftMargin">
-    <number>50</number>
+    <number>5</number>
    </property>
    <property name="topMargin">
-    <number>50</number>
+    <number>5</number>
    </property>
    <property name="rightMargin">
-    <number>50</number>
+    <number>5</number>
    </property>
    <property name="bottomMargin">
-    <number>50</number>
+    <number>5</number>
    </property>
    <item>
     <layout class="QGridLayout" name="gridLayout_7" rowstretch="0,0,0" columnstretch="0,0,1">
@@ -66,7 +69,8 @@ border-image: url(:/img/img/modelbackground.png);
           </size>
          </property>
          <property name="styleSheet">
-          <string notr="true">color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(81, 182, 243, 255), stop:1 rgba(45, 141, 246, 255));</string>
+          <string notr="true"> 
+color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0.00568182 rgba(0, 157, 68, 255), stop:1 rgba(134, 255, 141, 255));</string>
          </property>
          <property name="frameShadow">
           <enum>QFrame::Plain</enum>
@@ -101,6 +105,9 @@ border-image: url(:/img/img/modelbackground.png);
          </property>
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
+         </property>
+         <property name="lineWidth">
+          <number>3</number>
          </property>
         </widget>
        </item>
@@ -179,7 +186,8 @@ border-image: url(:/img/img/modelbackground.png);
           </size>
          </property>
          <property name="styleSheet">
-          <string notr="true">color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(81, 182, 243, 255), stop:1 rgba(45, 141, 246, 255));</string>
+          <string notr="true"> 
+color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0.00568182 rgba(0, 157, 68, 255), stop:1 rgba(134, 255, 141, 255));</string>
          </property>
          <property name="frameShadow">
           <enum>QFrame::Plain</enum>
@@ -220,7 +228,8 @@ border-image: url(:/img/img/modelbackground.png);
           </size>
          </property>
          <property name="styleSheet">
-          <string notr="true">color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(81, 182, 243, 255), stop:1 rgba(45, 141, 246, 255));</string>
+          <string notr="true"> 
+color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0.00568182 rgba(0, 157, 68, 255), stop:1 rgba(134, 255, 141, 255));</string>
          </property>
          <property name="frameShadow">
           <enum>QFrame::Plain</enum>
@@ -290,7 +299,8 @@ border-image: url(:/img/img/modelbackground.png);
           </size>
          </property>
          <property name="styleSheet">
-          <string notr="true">color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(81, 182, 243, 255), stop:1 rgba(45, 141, 246, 255));</string>
+          <string notr="true"> 
+color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0.00568182 rgba(0, 157, 68, 255), stop:1 rgba(134, 255, 141, 255));</string>
          </property>
          <property name="frameShadow">
           <enum>QFrame::Plain</enum>
@@ -308,6 +318,12 @@ border-image: url(:/img/img/modelbackground.png);
        </item>
        <item row="1" column="1" rowspan="3">
         <widget class="SourceModel" name="source_1">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="minimumSize">
           <size>
            <width>170</width>
@@ -325,6 +341,9 @@ border-image: url(:/img/img/modelbackground.png);
          </property>
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
+         </property>
+         <property name="lineWidth">
+          <number>0</number>
          </property>
         </widget>
        </item>
@@ -446,6 +465,9 @@ border-image: url(:/img/img/modelbackground.png);
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
+         <property name="lineWidth">
+          <number>2</number>
+         </property>
         </widget>
        </item>
        <item>
@@ -484,6 +506,9 @@ border-image: url(:/img/img/modelbackground.png);
    </item>
    <item>
     <layout class="QGridLayout" name="gridLayout_8" columnstretch="1,0,0">
+     <property name="horizontalSpacing">
+      <number>0</number>
+     </property>
      <item row="0" column="0">
       <layout class="QGridLayout" name="gridLayout_5" columnstretch="1,0,0">
        <property name="horizontalSpacing">
@@ -544,7 +569,8 @@ border-image: url(:/img/img/modelbackground.png);
           </size>
          </property>
          <property name="styleSheet">
-          <string notr="true">color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(81, 182, 243, 255), stop:1 rgba(45, 141, 246, 255));</string>
+          <string notr="true"> 
+color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0.00568182 rgba(0, 157, 68, 255), stop:1 rgba(134, 255, 141, 255));</string>
          </property>
          <property name="frameShadow">
           <enum>QFrame::Plain</enum>
@@ -644,7 +670,8 @@ border-image: url(:/img/img/modelbackground.png);
           </size>
          </property>
          <property name="styleSheet">
-          <string notr="true">color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(81, 182, 243, 255), stop:1 rgba(45, 141, 246, 255));</string>
+          <string notr="true"> 
+color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0.00568182 rgba(0, 157, 68, 255), stop:1 rgba(134, 255, 141, 255));</string>
          </property>
          <property name="frameShadow">
           <enum>QFrame::Plain</enum>
@@ -795,7 +822,8 @@ border-image: url(:/img/img/modelbackground.png);
           </size>
          </property>
          <property name="styleSheet">
-          <string notr="true">color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(81, 182, 243, 255), stop:1 rgba(45, 141, 246, 255));</string>
+          <string notr="true"> 
+color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0.00568182 rgba(0, 157, 68, 255), stop:1 rgba(134, 255, 141, 255));</string>
          </property>
          <property name="frameShadow">
           <enum>QFrame::Plain</enum>
@@ -836,7 +864,8 @@ border-image: url(:/img/img/modelbackground.png);
           </size>
          </property>
          <property name="styleSheet">
-          <string notr="true">color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(81, 182, 243, 255), stop:1 rgba(45, 141, 246, 255));</string>
+          <string notr="true"> 
+color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0.00568182 rgba(0, 157, 68, 255), stop:1 rgba(134, 255, 141, 255));</string>
          </property>
          <property name="frameShadow">
           <enum>QFrame::Plain</enum>
