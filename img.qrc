@@ -3,5 +3,8 @@
         <file>img/background.png</file>
         <file>img/modelbackground.png</file>
         <file>img/topTitle.png</file>
+        <file>img/nemebackground.png</file>
+        <file>img/radar_1.png</file>
+        <file>img/radar_2.png</file>
     </qresource>
 </RCC>
