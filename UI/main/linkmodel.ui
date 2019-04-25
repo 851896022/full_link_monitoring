@@ -587,7 +587,7 @@ color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0.00568182 rgba(
         </widget>
        </item>
        <item row="1" column="1" rowspan="3">
-        <widget class="SourceModel" name="source_7">
+        <widget class="RadioModel" name="source_7">
          <property name="minimumSize">
           <size>
            <width>170</width>
@@ -688,7 +688,7 @@ color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0.00568182 rgba(
         </widget>
        </item>
        <item row="1" column="1" rowspan="3">
-        <widget class="SourceModel" name="source_8">
+        <widget class="RadioModel" name="source_8">
          <property name="minimumSize">
           <size>
            <width>170</width>
@@ -724,7 +724,7 @@ color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0.00568182 rgba(
         </widget>
        </item>
        <item>
-        <widget class="SourceModel" name="source_5">
+        <widget class="RadioModel" name="source_5">
          <property name="minimumSize">
           <size>
            <width>170</width>
@@ -762,7 +762,7 @@ color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0.00568182 rgba(
         </widget>
        </item>
        <item>
-        <widget class="SourceModel" name="source_6">
+        <widget class="RadioModel" name="source_6">
          <property name="minimumSize">
           <size>
            <width>170</width>
@@ -934,6 +934,12 @@ color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0.00568182 rgba(
    <class>SourceModel</class>
    <extends>QFrame</extends>
    <header>UI/main/sourcemodel.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>RadioModel</class>
+   <extends>QFrame</extends>
+   <header>UI/main/radiomodel.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

@@ -6,5 +6,6 @@
         <file>img/nemebackground.png</file>
         <file>img/radar_1.png</file>
         <file>img/radar_2.png</file>
+        <file>img/radio.png</file>
     </qresource>
 </RCC>

@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1103</width>
+    <width>1018</width>
     <height>50</height>
    </rect>
   </property>
@@ -20,7 +20,7 @@
    <string>Frame</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">#title
+   <string notr="true">#title,#Tittle
 {
 border-image: url(:/img/img/topTitle.png);
 }</string>
@@ -31,24 +31,49 @@ border-image: url(:/img/img/topTitle.png);
   <property name="frameShadow">
    <enum>QFrame::Raised</enum>
   </property>
-  <layout class="QHBoxLayout" name="horizontalLayout">
+  <layout class="QGridLayout" name="gridLayout">
+   <property name="leftMargin">
+    <number>10</number>
+   </property>
    <property name="topMargin">
-    <number>2</number>
+    <number>5</number>
+   </property>
+   <property name="rightMargin">
+    <number>10</number>
    </property>
    <property name="bottomMargin">
-    <number>20</number>
+    <number>0</number>
    </property>
-   <item>
-    <widget class="QLabel" name="label">
+   <property name="horizontalSpacing">
+    <number>50</number>
+   </property>
+   <property name="verticalSpacing">
+    <number>0</number>
+   </property>
+   <item row="2" column="2">
+    <widget class="LcdDateTime" name="lcdDateTime">
+     <property name="styleSheet">
+      <string notr="true">color: rgb(255, 255, 255);</string>
+     </property>
+     <property name="format">
+      <string>yyyy-MM-dd HH:mm:ss</string>
+     </property>
+     <property name="digitCount">
+      <number>19</number>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="1">
+    <widget class="QLabel" name="label_3">
      <property name="text">
-      <string>TextLabel</string>
+      <string/>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
    </item>
-   <item>
+   <item row="1" column="1">
     <widget class="QLabel" name="name">
      <property name="font">
       <font>
@@ -69,18 +94,51 @@ border-image: url(:/img/img/topTitle.png);
      </property>
     </widget>
    </item>
-   <item>
-    <widget class="QLabel" name="label_2">
+   <item row="1" column="0">
+    <widget class="QLabel" name="label">
      <property name="text">
-      <string>TextLabel</string>
+      <string/>
      </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
+    </widget>
+   </item>
+   <item row="2" column="0">
+    <widget class="TextMoveWidget" name="textMoveWidget">
+     <property name="text">
+      <string>今天天气不错</string>
+     </property>
+     <property name="foreground">
+      <color>
+       <red>227</red>
+       <green>236</green>
+       <blue>239</blue>
+      </color>
+     </property>
+     <property name="background">
+      <color alpha="0">
+       <red>22</red>
+       <green>22</green>
+       <blue>22</blue>
+      </color>
+     </property>
+     <property name="moveStyle">
+      <enum>TextMoveWidget::MoveStyle_LeftToRight</enum>
      </property>
     </widget>
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>LcdDateTime</class>
+   <extends>QLCDNumber</extends>
+   <header>lcddatetime.h</header>
+  </customwidget>
+  <customwidget>
+   <class>TextMoveWidget</class>
+   <extends>QWidget</extends>
+   <header>textmovewidget.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
