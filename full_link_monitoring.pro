@@ -29,21 +29,24 @@ SOURCES += \
     UI/main/linkmodel.cpp \
     UI/main/tittle.cpp \
     UI/main/sourcemodel.cpp \
-    UI/main/radiomodel.cpp
+    UI/main/radiomodel.cpp \
+    UI/main/forcemodel.cpp
 
 HEADERS += \
         window.h \
     UI/main/linkmodel.h \
     UI/main/tittle.h \
     UI/main/sourcemodel.h \
-    UI/main/radiomodel.h
+    UI/main/radiomodel.h \
+    UI/main/forcemodel.h
 
 FORMS += \
         window.ui \
     UI/main/linkmodel.ui \
     UI/main/tittle.ui \
     UI/main/sourcemodel.ui \
-    UI/main/radiomodel.ui
+    UI/main/radiomodel.ui \
+    UI/main/forcemodel.ui
 INCLUDEPATH += $$PWD/sdk
 CONFIG(release, debug|release){
 LIBS        += -L$$PWD/sdk/ -lquc

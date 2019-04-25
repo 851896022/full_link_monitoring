@@ -121,7 +121,7 @@ border-image: url(:/img/img/topTitle.png);
       </color>
      </property>
      <property name="moveStyle">
-      <enum>TextMoveWidget::MoveStyle_LeftToRight</enum>
+      <enum>TextMoveWidget::MoveStyle_LeftAndRight</enum>
      </property>
     </widget>
    </item>
