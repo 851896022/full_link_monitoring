@@ -30,7 +30,8 @@ SOURCES += \
     UI/main/tittle.cpp \
     UI/main/sourcemodel.cpp \
     UI/main/radiomodel.cpp \
-    UI/main/forcemodel.cpp
+    UI/main/forcemodel.cpp \
+    data/global.cpp
 
 HEADERS += \
         window.h \
@@ -38,7 +39,8 @@ HEADERS += \
     UI/main/tittle.h \
     UI/main/sourcemodel.h \
     UI/main/radiomodel.h \
-    UI/main/forcemodel.h
+    UI/main/forcemodel.h \
+    data/global.h
 
 FORMS += \
         window.ui \
