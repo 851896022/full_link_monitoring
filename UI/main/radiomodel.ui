@@ -76,12 +76,12 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.636
          <string notr="true">color: rgb(255, 255, 255);</string>
         </property>
         <property name="text">
-         <string/>
+         <string>频  率</string>
         </property>
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QLabel" name="label_5">
+       <widget class="QLabel" name="label_TFU">
         <property name="styleSheet">
          <string notr="true">color: rgb(255, 255, 255);</string>
         </property>
@@ -91,7 +91,7 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.636
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QLabel" name="label_6">
+       <widget class="QLabel" name="label_RSSI">
         <property name="styleSheet">
          <string notr="true">color: rgb(255, 255, 255);</string>
         </property>
@@ -101,12 +101,12 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.636
        </widget>
       </item>
       <item row="2" column="1">
-       <widget class="QLabel" name="label_7">
+       <widget class="QLabel" name="label_Fre">
         <property name="styleSheet">
          <string notr="true">color: rgb(255, 255, 255);</string>
         </property>
         <property name="text">
-         <string/>
+         <string>8888</string>
         </property>
        </widget>
       </item>
@@ -151,7 +151,7 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.636
        </widget>
       </item>
       <item>
-       <widget class="WaveBar" name="waveBar_2">
+       <widget class="WaveBar" name="waveBar_1">
         <property name="minimumSize">
          <size>
           <width>20</width>

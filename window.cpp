@@ -6,6 +6,9 @@ Window::Window(QWidget *parent) :
     ui(new Ui::Window)
 {
     ui->setupUi(this);
+    //ui->linkModel_2->hide();
+
+
     ui->linkModel_1->initThis(0);
     ui->linkModel_2->initThis(1);
 

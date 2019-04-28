@@ -2,7 +2,7 @@
 #define TITTLE_H
 
 #include <QFrame>
-
+#include <QResizeEvent>
 namespace Ui {
 class Tittle;
 }
@@ -17,6 +17,8 @@ public:
 
 private:
     Ui::Tittle *ui;
+    void resizeEvent(QResizeEvent *event);
+
 };
 
 #endif // TITTLE_H
