@@ -149,7 +149,7 @@ color: rgb(255, 255, 255);</string>
        <number>0</number>
       </property>
       <item>
-       <widget class="QToolButton" name="toolButton">
+       <widget class="QToolButton" name="toolButton_1">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Ignored" vsizetype="Ignored">
           <horstretch>0</horstretch>

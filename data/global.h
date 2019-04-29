@@ -30,6 +30,8 @@ public:
     //最新幅度
     int ac32Apm[36];
     int xjjcApm[36];
+    //当前监听通道
+    int nowPlayCh=999;
 
 signals:
 

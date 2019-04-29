@@ -11,7 +11,7 @@ Window::Window(QWidget *parent) :
     {
         ui->linkModel_2->hide();
     }
-    ui->linkModel_2->initThis(0);
+    ui->linkModel_1->initThis(0);
     ui->linkModel_2->initThis(1);
 
     waveBarDGNList[0]=ui->linkModel_1->ui->source_1->ui->waveBar_1;
@@ -49,12 +49,76 @@ Window::Window(QWidget *parent) :
     waveBarDGNList[23]=ui->linkModel_2->ui->radio_4->ui->waveBar_1;
 
 
+    logoButton[0]=ui->linkModel_1->ui->source_1->ui->toolButton_1;
+    logoButton[1]=ui->linkModel_1->ui->source_1->ui->toolButton_2;
+    logoButton[2]=ui->linkModel_1->ui->radio_1->ui->toolButton_1;
+
+    logoButton[3]=ui->linkModel_1->ui->source_2->ui->toolButton_1;
+    logoButton[4]=ui->linkModel_1->ui->source_2->ui->toolButton_2;
+    logoButton[5]=ui->linkModel_1->ui->radio_2->ui->toolButton_1;
+
+    logoButton[6]=ui->linkModel_1->ui->source_3->ui->toolButton_1;
+    logoButton[7]=ui->linkModel_1->ui->source_3->ui->toolButton_2;
+    logoButton[8]=ui->linkModel_1->ui->radio_3->ui->toolButton_1;
+
+    logoButton[9]=ui->linkModel_1->ui->source_4->ui->toolButton_1;
+    logoButton[10]=ui->linkModel_1->ui->source_4->ui->toolButton_2;
+    logoButton[11]=ui->linkModel_1->ui->radio_4->ui->toolButton_1;
 
 
+
+    logoButton[12]=ui->linkModel_2->ui->source_1->ui->toolButton_1;
+    logoButton[13]=ui->linkModel_2->ui->source_1->ui->toolButton_2;
+    logoButton[14]=ui->linkModel_2->ui->radio_1->ui->toolButton_1;
+
+    logoButton[15]=ui->linkModel_2->ui->source_2->ui->toolButton_1;
+    logoButton[16]=ui->linkModel_2->ui->source_2->ui->toolButton_2;
+    logoButton[17]=ui->linkModel_2->ui->radio_2->ui->toolButton_1;
+
+    logoButton[18]=ui->linkModel_2->ui->source_3->ui->toolButton_1;
+    logoButton[19]=ui->linkModel_2->ui->source_3->ui->toolButton_2;
+    logoButton[20]=ui->linkModel_2->ui->radio_3->ui->toolButton_1;
+
+    logoButton[21]=ui->linkModel_2->ui->source_4->ui->toolButton_1;
+    logoButton[22]=ui->linkModel_2->ui->source_4->ui->toolButton_2;
+    logoButton[23]=ui->linkModel_2->ui->radio_4->ui->toolButton_1;
+
+    for(int i=0;i<24;i++)
+    {
+        connect(logoButton[i],SIGNAL(clicked(bool)),this,SLOT(onLogoButtonClicked(bool)));
+    }
 
 }
 
 Window::~Window()
 {
     delete ui;
+}
+void Window::onLogoButtonClicked(bool)
+{
+    int i;
+    QToolButton *c=(QToolButton*)sender();
+    for(i=0;i<24;i++)
+    {
+        if(c==logoButton[i])
+        {
+            if(g->nowPlayCh==i)
+            {
+                logoButton[i]->setStyleSheet("background-color: rgba(0, 255, 0, 0);");
+                g->nowPlayCh=999;
+            }
+            else
+            {
+                logoButton[i]->setStyleSheet("background-color: rgba(0, 255, 0, 255);");
+                g->nowPlayCh=i;
+            }
+
+
+        }
+        else
+        {
+            logoButton[i]->setStyleSheet("background-color: rgba(0, 255, 0, 0);");
+        }
+    }
+
 }

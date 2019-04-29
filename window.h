@@ -14,6 +14,7 @@
 #include <UI/main/tittle.h>
 #include <ui_tittle.h>
 #include "wavebar.h"
+#include <QToolButton>
 namespace Ui {
 class Window;
 }
@@ -26,6 +27,11 @@ public:
     explicit Window(QWidget *parent = 0);
     ~Window();
     WaveBar *waveBarDGNList[24];
+    QToolButton *logoButton[24];
+public slots:
+
+    void onLogoButtonClicked(bool checked = false);
+
 private:
     Ui::Window *ui;
 };
