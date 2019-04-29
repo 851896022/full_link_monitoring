@@ -16,7 +16,7 @@ public:
     ~LinkModel();
     int No=0;
     void initThis(int No);
-private:
+//private:
     Ui::LinkModel *ui;
 };
 

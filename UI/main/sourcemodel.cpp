@@ -11,7 +11,7 @@ SourceModel::SourceModel(QWidget *parent) :
 void SourceModel::initThis(int No)
 {
     this->No=No;
-    ui->name->setText(QString::number(No));
+    ui->name->setText(g->receiverName[No]);
 }
 SourceModel::~SourceModel()
 {

@@ -48,13 +48,51 @@ Window::Window(QWidget *parent) :
     waveBarDGNList[22]=ui->linkModel_2->ui->source_4->ui->waveBar_2;
     waveBarDGNList[23]=ui->linkModel_2->ui->radio_4->ui->waveBar_1;
 
+    
+    logoButton[0]=ui->linkModel_1->ui->source_1->ui->toolButton_1;
+    logoButton[1]=ui->linkModel_1->ui->source_1->ui->toolButton_2;
+    logoButton[2]=ui->linkModel_1->ui->radio_1->ui->toolButton_1;
+
+    logoButton[3]=ui->linkModel_1->ui->source_2->ui->toolButton_1;
+    logoButton[4]=ui->linkModel_1->ui->source_2->ui->toolButton_2;
+    logoButton[5]=ui->linkModel_1->ui->radio_2->ui->toolButton_1;
+
+    logoButton[6]=ui->linkModel_1->ui->source_3->ui->toolButton_1;
+    logoButton[7]=ui->linkModel_1->ui->source_3->ui->toolButton_2;
+    logoButton[8]=ui->linkModel_1->ui->radio_3->ui->toolButton_1;
+
+    logoButton[9]=ui->linkModel_1->ui->source_4->ui->toolButton_1;
+    logoButton[10]=ui->linkModel_1->ui->source_4->ui->toolButton_2;
+    logoButton[11]=ui->linkModel_1->ui->radio_4->ui->toolButton_1;
 
 
 
+    logoButton[12]=ui->linkModel_2->ui->source_1->ui->toolButton_1;
+    logoButton[13]=ui->linkModel_2->ui->source_1->ui->toolButton_2;
+    logoButton[14]=ui->linkModel_2->ui->radio_1->ui->toolButton_1;
 
+    logoButton[15]=ui->linkModel_2->ui->source_2->ui->toolButton_1;
+    logoButton[16]=ui->linkModel_2->ui->source_2->ui->toolButton_2;
+    logoButton[17]=ui->linkModel_2->ui->radio_2->ui->toolButton_1;
+
+    logoButton[18]=ui->linkModel_2->ui->source_3->ui->toolButton_1;
+    logoButton[19]=ui->linkModel_2->ui->source_3->ui->toolButton_2;
+    logoButton[20]=ui->linkModel_2->ui->radio_3->ui->toolButton_1;
+
+    logoButton[21]=ui->linkModel_2->ui->source_4->ui->toolButton_1;
+    logoButton[22]=ui->linkModel_2->ui->source_4->ui->toolButton_2;
+    logoButton[23]=ui->linkModel_2->ui->radio_4->ui->toolButton_1;
+    
+
+    
 }
 
 Window::~Window()
 {
     delete ui;
+}
+void Window::onLogoButtonClicked(bool checked = false)
+{
+    
+    for(int i)
 }

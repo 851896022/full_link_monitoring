@@ -12,3 +12,8 @@ RadioModel::~RadioModel()
 {
     delete ui;
 }
+void RadioModel::initThis(int No)
+{
+    this->No=No;
+    ui->name->setText(g->radioName[No]);
+}

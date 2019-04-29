@@ -3,6 +3,7 @@
 
 #include <QFrame>
 #include <QResizeEvent>
+#include <data/global.h>
 namespace Ui {
 class Tittle;
 }
@@ -15,7 +16,7 @@ public:
     explicit Tittle(QWidget *parent = 0);
     ~Tittle();
 
-private:
+//private:
     Ui::Tittle *ui;
     void resizeEvent(QResizeEvent *event);
 

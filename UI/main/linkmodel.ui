@@ -558,7 +558,7 @@ border-width: 5px;
         </widget>
        </item>
        <item row="1" column="1" rowspan="3">
-        <widget class="RadioModel" name="source_7">
+        <widget class="RadioModel" name="radio_1">
          <property name="minimumSize">
           <size>
            <width>170</width>
@@ -663,7 +663,7 @@ border-width: 5px;
         </widget>
        </item>
        <item row="1" column="1" rowspan="3">
-        <widget class="RadioModel" name="source_8">
+        <widget class="RadioModel" name="radio_4">
          <property name="minimumSize">
           <size>
            <width>170</width>
@@ -735,7 +735,7 @@ border-width: 5px;
         </widget>
        </item>
        <item>
-        <widget class="RadioModel" name="source_5">
+        <widget class="RadioModel" name="radio_2">
          <property name="minimumSize">
           <size>
            <width>170</width>
@@ -773,7 +773,7 @@ border-width: 5px;
         </widget>
        </item>
        <item>
-        <widget class="RadioModel" name="source_6">
+        <widget class="RadioModel" name="radio_3">
          <property name="minimumSize">
           <size>
            <width>170</width>

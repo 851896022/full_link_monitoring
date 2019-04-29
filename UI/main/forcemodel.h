@@ -15,7 +15,7 @@ public:
     explicit ForceModel(QWidget *parent = 0);
     ~ForceModel();
 
-private:
+//private:
     Ui::ForceModel *ui;
 };
 

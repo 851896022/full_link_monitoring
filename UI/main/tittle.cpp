@@ -6,6 +6,7 @@ Tittle::Tittle(QWidget *parent) :
     ui(new Ui::Tittle)
 {
     ui->setupUi(this);
+    ui->name->setText(g->stationName);
 }
 
 Tittle::~Tittle()

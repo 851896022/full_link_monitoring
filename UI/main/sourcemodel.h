@@ -2,7 +2,7 @@
 #define SOURCEMODEL_H
 
 #include <QFrame>
-
+#include "data/global.h"
 namespace Ui {
 class SourceModel;
 }
@@ -16,7 +16,7 @@ public:
     ~SourceModel();
     int No;
     void initThis(int No);
-private:
+//private:
     Ui::SourceModel *ui;
 };
 
