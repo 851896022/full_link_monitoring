@@ -15,6 +15,7 @@
 #include <ui_tittle.h>
 #include "wavebar.h"
 #include <QToolButton>
+#include <QCloseEvent>
 namespace Ui {
 class Window;
 }
@@ -32,6 +33,7 @@ public slots:
 
     void onLogoButtonClicked(bool checked = false);
 
+    void closeEvent(QCloseEvent *event);
 private:
     Ui::Window *ui;
 };

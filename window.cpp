@@ -94,6 +94,37 @@ Window::~Window()
 {
     delete ui;
 }
+void Window::closeEvent(QCloseEvent *event)
+{
+    {
+        QProcess p;
+        QString c = "taskkill /im pcm_to_mp3.exe /f";
+        p.execute(c);
+        p.close();
+
+    }
+    {
+        QProcess p;
+        QString c = "taskkill /im hex_to_pcm.exe /f";
+        p.execute(c);
+        p.close();
+
+    }
+    {
+        QProcess p;
+        QString c = "taskkill /im alarm_server.exe /f";
+        p.execute(c);
+        p.close();
+
+    }
+    {
+        QProcess p;
+        QString c = "taskkill /im "+qApp->applicationName()+".exe /f";
+        p.execute(c);
+        p.close();
+
+    }
+}
 void Window::onLogoButtonClicked(bool)
 {
     int i;
