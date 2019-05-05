@@ -48,6 +48,96 @@ void Global::initThis()
         }
     }
 
+    //============================================================
+    {
+        QString base_dir=qApp->applicationDirPath()+"/sav";
+        QDir *temp = new QDir;
+        bool exist = temp->exists(base_dir);
+        if(!exist)
+        {
+            temp->mkdir(base_dir);
+        }
+    }
+    loadEqu();
+//========================================================
+    receivePCM=new QUdpSocket;
+    connect(receivePCM,SIGNAL(readyRead()),this,SLOT(onReceivePCM()));
+    player=new Player;
+
+
+
+}
+void Global::loadEqu()
+{
+    //================================================================
+    {
+        QString filename;
+        filename+=(qApp->applicationDirPath()+"/sav/equ.sav");
+        //判断文件是否存在
+        QFile *file = new QFile(filename);
+        if(file->open(QIODevice::ReadOnly))
+        {
+            for(int i=0;i<10;i++)
+            {
+                {
+                    QString ba(file->readLine());
+                    QStringList list=ba.split("|");
+                    equ[i].name=list.at(0);
+                    equ[i].ip=equ[i].name.split(":").at(0);
+                    equ[i].port=equ[i].name.split(":").at(1).toInt();
+                    for(int j=0;j<18;j++)
+                    {
+                        equ[i].chName[j]=list.at(j+1);
+                    }
+                }
+
+
+                if(file->atEnd())break;
+            }
+            file->close();
+        }
+        file->deleteLater();
+    }
+
+    //--------------------------
+    int equCount=10;
+    for(int i=0;i<10;i++)
+    {
+        if(equ[i].port==0)
+        {
+            equCount=i;
+            break;
+        }
+    }
+    this->equCount=equCount;
+}
+void Global::changePlayCh(int ch)
+{
+    if(receivePCM->state()==QAbstractSocket::BoundState)
+    {
+        receivePCM->close();
+    }
+    receivePCM->bind((50000+(ch*10)));
+}
+void Global::stopPlay()
+{
+    receivePCM->close();
+}
+void Global::onReceivePCM()
+{
+
+
+    char ch[23040]={0};
+
+    int len=receivePCM->readDatagram(ch,23040);
+
+
+    if(len>2304)
+    {
+        qDebug()<<"this time receive len is"<<len;
+    }
+    if(len<2304)return;
+    player->tempBuffer.append(ch,len);
 
 
 }

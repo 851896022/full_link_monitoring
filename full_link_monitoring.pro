@@ -4,7 +4,8 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui network multimedia
+
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -31,7 +32,10 @@ SOURCES += \
     UI/main/sourcemodel.cpp \
     UI/main/radiomodel.cpp \
     UI/main/forcemodel.cpp \
-    data/global.cpp
+    data/global.cpp \
+    data/audio/player.cpp \
+    data/audio/processmanage.cpp \
+    data/audio/receivedata.cpp
 
 HEADERS += \
         window.h \
@@ -40,7 +44,10 @@ HEADERS += \
     UI/main/sourcemodel.h \
     UI/main/radiomodel.h \
     UI/main/forcemodel.h \
-    data/global.h
+    data/global.h \
+    data/audio/player.h \
+    data/audio/processmanage.h \
+    data/audio/receivedata.h
 
 FORMS += \
         window.ui \
