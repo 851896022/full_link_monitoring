@@ -34,6 +34,7 @@ public slots:
     void onLogoButtonClicked(bool checked = false);
 
     void closeEvent(QCloseEvent *event);
+    void onRefApm();
 private:
     Ui::Window *ui;
 };

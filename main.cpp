@@ -1,5 +1,6 @@
 #include "window.h"
 #include <QApplication>
+#include <QObject>
 #include "data/global.h"
 #include "data/audio/processmanage.h"
 #include "data/audio/receivedata.h"
@@ -16,8 +17,10 @@ int main(int argc, char *argv[])
     processManage->initAlarm();
 
 
+
     Window w;
     w.show();
 
+    QObject::connect(receiveData,SIGNAL(apmRef()),&w,SLOT(onRefApm()));
     return a.exec();
 }

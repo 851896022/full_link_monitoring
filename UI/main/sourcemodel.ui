@@ -188,20 +188,6 @@ color: rgb(255, 255, 255);</string>
           <height>16777215</height>
          </size>
         </property>
-        <property name="bgColorStart">
-         <color>
-          <red>100</red>
-          <green>100</green>
-          <blue>100</blue>
-         </color>
-        </property>
-        <property name="bgColorEnd">
-         <color>
-          <red>60</red>
-          <green>60</green>
-          <blue>60</blue>
-         </color>
-        </property>
        </widget>
       </item>
      </layout>

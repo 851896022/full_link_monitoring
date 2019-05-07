@@ -29,7 +29,9 @@ void ReceiveData::onReceived()
                     for(int i=0;i<18;i++)
                     {
                         g->ac32Apm[num*18+i]=rData.at(i+2).toInt();
+
                     }
+                    emit apmRef();
                     break;
                 }
             case 1://录音信息

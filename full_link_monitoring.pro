@@ -35,7 +35,8 @@ SOURCES += \
     data/global.cpp \
     data/audio/player.cpp \
     data/audio/processmanage.cpp \
-    data/audio/receivedata.cpp
+    data/audio/receivedata.cpp \
+    data/alarm/reaudiodata.cpp
 
 HEADERS += \
         window.h \
@@ -47,7 +48,8 @@ HEADERS += \
     data/global.h \
     data/audio/player.h \
     data/audio/processmanage.h \
-    data/audio/receivedata.h
+    data/audio/receivedata.h \
+    data/alarm/reaudiodata.h
 
 FORMS += \
         window.ui \

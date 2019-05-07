@@ -85,6 +85,9 @@ Window::Window(QWidget *parent) :
 
     for(int i=0;i<24;i++)
     {
+        waveBarDGNList[i]->setHeadHeight(0);
+        waveBarDGNList[i]->setStep(0.7);
+        waveBarDGNList[i]->setSpace(2);
         connect(logoButton[i],SIGNAL(clicked(bool)),this,SLOT(onLogoButtonClicked(bool)));
     }
 
@@ -124,6 +127,7 @@ void Window::closeEvent(QCloseEvent *event)
         p.close();
 
     }
+    event->accept();
 }
 void Window::onLogoButtonClicked(bool)
 {
@@ -135,11 +139,14 @@ void Window::onLogoButtonClicked(bool)
         {
             if(g->nowPlayCh==i)
             {
+
+                g->stopPlay();
                 logoButton[i]->setStyleSheet("background-color: rgba(0, 255, 0, 0);");
                 g->nowPlayCh=999;
             }
             else
             {
+                g->changePlayCh(i);
                 logoButton[i]->setStyleSheet("background-color: rgba(0, 255, 0, 255);");
                 g->nowPlayCh=i;
             }
@@ -152,4 +159,11 @@ void Window::onLogoButtonClicked(bool)
         }
     }
 
+}
+void Window::onRefApm()
+{
+    for(int i=0;i<24;i++)
+    {
+        waveBarDGNList[i]->setValue(g->ac32Apm[i]);
+    }
 }

@@ -85,6 +85,7 @@ public:
     QUdpSocket *receivePCM;
     Player *player;
 
+
 signals:
 
 public slots:
@@ -93,6 +94,7 @@ public slots:
     void changePlayCh(int);
     void stopPlay();
     void onReceivePCM();
+
 };
 extern Global *g;
 #endif // GLOBAL_H
