@@ -75,11 +75,14 @@ public:
     int xjjcApm[200];
     //当前监听通道
     int nowPlayCh=999;
+    //最大值0~32768
+    int maxValue[200];
 
     //当前录音文件
     QString nowFileName[200];
     //报警信息
     QList<AlarmInfo> alarmListWaitSend;
+
 
     //==========对象=======
     QUdpSocket *receivePCM;

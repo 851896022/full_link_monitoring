@@ -25,6 +25,8 @@ void ReceiveData::onReceived()
             {
             case 0://APM
                 {
+                    break;//不用这个APM了，使用音频算出的APM
+
                     int num=rData.at(1).toInt();
                     for(int i=0;i<18;i++)
                     {

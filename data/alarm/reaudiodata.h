@@ -2,7 +2,7 @@
 #define REAUDIODATA_H
 
 #include <QObject>
-#include "global.h"
+#include "data/global.h"
 class ReAudioData : public QObject
 {
     Q_OBJECT
@@ -11,9 +11,10 @@ public:
     int No;
     QUdpSocket *socket;
 signals:
-
+    void apmOk(int ch);
 public slots:
     void initThis();
+    void initThis(int);
     void onReadyRead();
 
 };

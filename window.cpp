@@ -167,3 +167,7 @@ void Window::onRefApm()
         waveBarDGNList[i]->setValue(g->ac32Apm[i]);
     }
 }
+void Window::onRefApm(int i)
+{
+    waveBarDGNList[i]->setValue(g->ac32Apm[i]);
+}

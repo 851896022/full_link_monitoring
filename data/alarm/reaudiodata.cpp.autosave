@@ -29,6 +29,7 @@ void ReAudioData::onReadyRead()
     //if(socket->pendingDatagramSize()>0)
     {
         realsize=socket->readDatagram((char*)ch, 65536);
+        /*
         if(realsize==2304)
         {
             g->audioCache[No].append((char*)ch,2304);
@@ -40,6 +41,7 @@ void ReAudioData::onReadyRead()
             }
 
         }
+        */
         int MAX=0;
         short* ch16=(short*)ch;
         for(int i=0;i<(2304/2);i++)
