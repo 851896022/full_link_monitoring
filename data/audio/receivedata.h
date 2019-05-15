@@ -14,6 +14,7 @@ signals:
     void sendALarm(int,int,QDateTime);
     void sendSim(int ch,float sim);
     void apmRef();
+
 public slots:
     void onReceived();
     void initThis();

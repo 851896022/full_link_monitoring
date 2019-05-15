@@ -22,6 +22,19 @@ void LinkModel::initThis(int No)
     ui->radio_2->initThis(No*4+1);
     ui->radio_3->initThis(No*4+2);
     ui->radio_4->initThis(No*4+3);
+
+    movie.setFileName(":/img/img/bar.gif");
+
+    ui->line_1->setMovie(&movie);
+    ui->line_2->setMovie(&movie);
+    ui->line_3->setMovie(&movie);
+    ui->line_4->setMovie(&movie);
+
+    ui->line_5->setMovie(&movie);
+    ui->line_6->setMovie(&movie);
+    ui->line_7->setMovie(&movie);
+    ui->line_8->setMovie(&movie);
+    movie.start();
 }
 LinkModel::~LinkModel()
 {

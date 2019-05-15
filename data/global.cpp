@@ -15,11 +15,12 @@ Global::Global(QObject *parent) : QObject(parent)
     {
         textMoveText[i]="节目源";
     }
-
+    isInitOk=false;
 
 }
 void Global::initThis()
 {
+    qDebug()<<"global init start";
     QSettings iniFile(QCoreApplication::applicationDirPath()+"/setSinkiang.ini", QSettings::IniFormat);
     iniFile.setIniCodec("UTF-8");
     if(iniFile.contains("global/xjjc"))
@@ -39,6 +40,7 @@ void Global::initThis()
             receiverName[i]=receiverNameList.at(i);
         }
     }
+
     if(iniFile.contains("global/radioName"))
     {
         QStringList radioNameList=iniFile.value("global/radioName").toStringList();
@@ -47,6 +49,29 @@ void Global::initThis()
             radioName[i]=radioNameList.at(i);
         }
     }
+    if(iniFile.contains("global/alarmGate"))
+    {
+        int gate=iniFile.value("global/alarmGate").toInt();
+        if(gate < 1) gate=1;
+        if(gate > 100) gate=100;
+        if(gate > 0 && gate <=100)
+        {
+            alarmGate = gate;
+        }
+
+    }
+    if(iniFile.contains("global/alarmDelay"))
+    {
+        int delay=iniFile.value("global/alarmDelay").toInt();
+        if(delay < 1) delay=1;
+        if(delay >1000) delay=1000;
+        if(delay > 0 && delay <=1000)
+        {
+            alarmDelay = delay;
+        }
+
+    }
+
 
     //============================================================
     {
@@ -58,14 +83,22 @@ void Global::initThis()
             temp->mkdir(base_dir);
         }
     }
+
     loadEqu();
+
 //========================================================
     receivePCM=new QUdpSocket;
     connect(receivePCM,SIGNAL(readyRead()),this,SLOT(onReceivePCM()));
     player=new Player;
+//=============================================================
+    for(int i=0;i<36;i++)
+    {
+        reAudioDataThread[i]=new QThread;
+    }
 
-
-
+    emit initOK();
+    isInitOk=true;
+    qDebug()<<"global init ok";
 }
 void Global::loadEqu()
 {
@@ -85,6 +118,7 @@ void Global::loadEqu()
                     equ[i].name=list.at(0);
                     equ[i].ip=equ[i].name.split(":").at(0);
                     equ[i].port=equ[i].name.split(":").at(1).toInt();
+
                     for(int j=0;j<18;j++)
                     {
                         equ[i].chName[j]=list.at(j+1);
@@ -113,6 +147,7 @@ void Global::loadEqu()
 }
 void Global::changePlayCh(int ch)
 {
+    player->tempBuffer.clear();
     if(receivePCM->state()==QAbstractSocket::BoundState)
     {
         receivePCM->close();
@@ -121,6 +156,7 @@ void Global::changePlayCh(int ch)
 }
 void Global::stopPlay()
 {
+    player->tempBuffer.clear();
     receivePCM->close();
 }
 void Global::onReceivePCM()
@@ -137,6 +173,16 @@ void Global::onReceivePCM()
         qDebug()<<"this time receive len is"<<len;
     }
     if(len<2304)return;
+
+
+    short *chs;
+
+    chs=(short*)(&ch);
+    for(int i=0;i<1152;i++)
+    {
+        chs[i]=chs[i]*listenGain;
+    }
+
     player->tempBuffer.append(ch,len);
 
 

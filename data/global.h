@@ -16,7 +16,9 @@
 #include <QList>
 #include <QThread>
 
+
 #include "data/audio/player.h"
+
 struct equStruct
 {
     QString chName[18];
@@ -50,6 +52,7 @@ class Global : public QObject
     Q_OBJECT
 public:
     explicit Global(QObject *parent = nullptr);
+    bool isInitOk=false;
     //========UI全局设置===========
     //链路总数
     int linkCount;
@@ -82,15 +85,21 @@ public:
     QString nowFileName[200];
     //报警信息
     QList<AlarmInfo> alarmListWaitSend;
-
+    //报警延时 秒
+    int alarmDelay=15;
+    //报警门限 %
+    int alarmGate=10;
+    //监听增益 0.1~5.0
+    float listenGain=1.0;
 
     //==========对象=======
     QUdpSocket *receivePCM;
     Player *player;
+    QThread *reAudioDataThread[36];
 
 
 signals:
-
+    void initOK();
 public slots:
     void initThis();
     void loadEqu();

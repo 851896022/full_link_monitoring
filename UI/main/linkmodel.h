@@ -2,7 +2,7 @@
 #define LINKMODEL_H
 
 #include <QFrame>
-
+#include <QMovie>
 namespace Ui {
 class LinkModel;
 }
@@ -16,6 +16,7 @@ public:
     ~LinkModel();
     int No=0;
     void initThis(int No);
+    QMovie movie;
 //private:
     Ui::LinkModel *ui;
 };

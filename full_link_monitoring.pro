@@ -36,7 +36,8 @@ SOURCES += \
     data/audio/player.cpp \
     data/audio/processmanage.cpp \
     data/audio/receivedata.cpp \
-    data/alarm/reaudiodata.cpp
+    data/alarm/reaudiodata.cpp \
+    UI/popup/globalset.cpp
 
 HEADERS += \
         window.h \
@@ -49,7 +50,8 @@ HEADERS += \
     data/audio/player.h \
     data/audio/processmanage.h \
     data/audio/receivedata.h \
-    data/alarm/reaudiodata.h
+    data/alarm/reaudiodata.h \
+    UI/popup/globalset.h
 
 FORMS += \
         window.ui \
@@ -57,7 +59,8 @@ FORMS += \
     UI/main/tittle.ui \
     UI/main/sourcemodel.ui \
     UI/main/radiomodel.ui \
-    UI/main/forcemodel.ui
+    UI/main/forcemodel.ui \
+    UI/popup/globalset.ui
 INCLUDEPATH += $$PWD/sdk
 CONFIG(release, debug|release){
 LIBS        += -L$$PWD/sdk/ -lquc

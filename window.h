@@ -36,6 +36,8 @@ public slots:
     void closeEvent(QCloseEvent *event);
     void onRefApm();
     void onRefApm(int i);
+    void onAlarm(int);
+    void onAlarmCancel(int);
 
 private:
     Ui::Window *ui;

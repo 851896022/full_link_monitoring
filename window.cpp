@@ -86,8 +86,8 @@ Window::Window(QWidget *parent) :
     for(int i=0;i<24;i++)
     {
         waveBarDGNList[i]->setHeadHeight(0);
-        waveBarDGNList[i]->setStep(0.7);
-        waveBarDGNList[i]->setSpace(2);
+        waveBarDGNList[i]->setStep(0.8);
+        waveBarDGNList[i]->setSpace(3);
         connect(logoButton[i],SIGNAL(clicked(bool)),this,SLOT(onLogoButtonClicked(bool)));
     }
 
@@ -169,5 +169,24 @@ void Window::onRefApm()
 }
 void Window::onRefApm(int i)
 {
+    //qDebug()<<i<<g->ac32Apm[i];
     waveBarDGNList[i]->setValue(g->ac32Apm[i]);
+}
+void Window::onAlarm(int ch)
+{
+    if(ch<24)
+    {
+        waveBarDGNList[ch]->setBgColorStart(QColor(255,0,0));
+        waveBarDGNList[ch]->setBgColorEnd(QColor(200,0,0));
+    }
+
+}
+void Window::onAlarmCancel(int ch)
+{
+    if(ch<24)
+    {
+        waveBarDGNList[ch]->setBgColorStart(QColor(100,100,100));
+        waveBarDGNList[ch]->setBgColorEnd(QColor(60,60,60));
+    }
+
 }

@@ -7,6 +7,7 @@ Tittle::Tittle(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->name->setText(g->stationName);
+    globalSet=new GlobalSet;
 }
 
 Tittle::~Tittle()
@@ -24,4 +25,14 @@ void Tittle::resizeEvent(QResizeEvent *event)
     QFont tmp= ui->name->font();
     tmp.setPointSizeF(this->geometry().height()*0.3);
     ui->name->setFont(tmp);
+}
+
+void Tittle::on_btn_set_clicked()
+{
+    globalSet->deleteLater();
+    globalSet= new GlobalSet;
+    globalSet->setWindowFlags(globalSet->windowFlags()  |   Qt::WindowStaysOnTopHint);
+    globalSet->show();
+    globalSet->raise();
+    globalSet->activateWindow();
 }

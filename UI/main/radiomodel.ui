@@ -14,7 +14,7 @@
    <string>Frame</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">#source_1,#source_2,#source_3,#source_4,#source_6,#source_7,#source_8,#source_5
+   <string notr="true">#radio_1,#radio_2,#radio_3,#radio_4
 {
 border-style: solid; 
 border-width: 2px;
