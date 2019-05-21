@@ -80,6 +80,7 @@ void ReAudioData::onReadyRead()
 }
 void ReAudioData::onTimerOut()
 {
+
     if(g->ac32Apm[No]>=g->alarmGate)
     {
         if(alarmCount>=(g->alarmDelay*10))
@@ -96,6 +97,16 @@ void ReAudioData::onTimerOut()
     if(alarmCount==(g->alarmDelay*10))
     {
         emit sendAlarm(No);
+        int tmp=No+1;
+        if(tmp>16)
+        {
+            tmp-2;
+        }
+        g->sqlite->takeLog(/*日志内容*/g->getChName(No)+QString("音频幅度过低"),
+                         /*表*/"alarm_log",
+                         /*类型*/"alarm",
+                         /*用户名*/QString::number(tmp)
+                         );//用户日志模板
     }
 
     if(alarmCount>(g->alarmDelay*10))

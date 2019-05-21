@@ -9,5 +9,13 @@
         <file>img/radio.png</file>
         <file>img/xjjc.png</file>
         <file>img/bar.gif</file>
+        <file>img/Silver_button.png</file>
+        <file>img/button.png</file>
+        <file>img/set.png</file>
+        <file>img/log.png</file>
+        <file>img/ly.png</file>
+    </qresource>
+    <qresource prefix="/other">
+        <file>DataBase.db</file>
     </qresource>
 </RCC>

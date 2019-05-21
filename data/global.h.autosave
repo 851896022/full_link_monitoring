@@ -48,9 +48,10 @@ struct LinkALarmGateTime
 };
 struct ChAlarmGateTime
 {
-    int * alarmGate;
-    int * alarmDelay;
+    int  alarmGate;
+    int  alarmDelay;
     TimeSlotWeek * timeList;
+    bool isUsing=false;
 };
 struct equStruct
 {
@@ -119,7 +120,7 @@ public:
     //报警信息
     QList<AlarmInfo> alarmListWaitSend;
     LinkALarmGateTime linkALarmGateTime[8];
-    ChAlarmGateTime chAlarmGateTime[32];
+    ChAlarmGateTime chAlarmGateTime[36];
     int alarmGate=100;
     int alarmDelay=100000;
 

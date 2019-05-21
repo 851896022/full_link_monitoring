@@ -8,6 +8,7 @@ Tittle::Tittle(QWidget *parent) :
     ui->setupUi(this);
     ui->name->setText(g->stationName);
     globalSet=new GlobalSet;
+    logQuery=new LogQuery;
 }
 
 Tittle::~Tittle()
@@ -35,4 +36,41 @@ void Tittle::on_btn_set_clicked()
     globalSet->show();
     globalSet->raise();
     globalSet->activateWindow();
+}
+#include <QDesktopServices>
+void Tittle::on_btn_mp3_clicked()
+{
+    QString dir;
+    {
+        QString filename;
+        filename+=(qApp->applicationDirPath()+"/sav/savedir.sav");
+        //判断文件是否存在
+        QFile *file = new QFile(filename);
+        if(file->open(QIODevice::ReadOnly))
+        {
+
+            {
+                QString ba(file->readLine());
+                ba=QString::fromStdString( ba.toStdString());
+                dir=ba;
+            }
+
+
+
+
+            file->close();
+        }
+        file->deleteLater();
+    }
+    QDesktopServices::openUrl(QUrl(dir, QUrl::TolerantMode));
+}
+
+void Tittle::on_btn_log_clicked()
+{
+    logQuery->deleteLater();
+    logQuery=new LogQuery;
+    logQuery->setWindowFlags(globalSet->windowFlags()  |   Qt::WindowStaysOnTopHint);
+    logQuery->show();
+    logQuery->raise();
+    logQuery->activateWindow();
 }

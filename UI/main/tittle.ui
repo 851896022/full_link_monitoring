@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1018</width>
+    <width>957</width>
     <height>50</height>
    </rect>
   </property>
@@ -31,7 +31,7 @@ border-image: url(:/img/img/topTitle.png);
   <property name="frameShadow">
    <enum>QFrame::Raised</enum>
   </property>
-  <layout class="QGridLayout" name="gridLayout">
+  <layout class="QGridLayout" name="gridLayout" rowstretch="1,1,1" columnstretch="1,1,1" rowminimumheight="1,1,1" columnminimumwidth="1,1,1">
    <property name="leftMargin">
     <number>10</number>
    </property>
@@ -81,14 +81,26 @@ border-image: url(:/img/img/topTitle.png);
      </property>
     </widget>
    </item>
-   <item row="1" column="0">
-    <widget class="QLabel" name="label">
-     <property name="text">
-      <string/>
+   <item row="1" column="2" rowspan="2">
+    <widget class="LcdDateTime" name="lcdDateTime">
+     <property name="styleSheet">
+      <string notr="true">color: rgb(255, 255, 255);</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
+     </property>
+     <property name="segmentStyle">
+      <enum>QLCDNumber::Flat</enum>
+     </property>
+     <property name="format">
+      <string>yyyy-MM-dd HH:mm:ss</string>
+     </property>
+     <property name="digitCount">
+      <number>19</number>
      </property>
     </widget>
    </item>
-   <item row="2" column="0">
+   <item row="1" column="0" rowspan="2">
     <widget class="QFrame" name="frame">
      <property name="frameShape">
       <enum>QFrame::StyledPanel</enum>
@@ -114,59 +126,86 @@ border-image: url(:/img/img/topTitle.png);
       </property>
       <item>
        <widget class="QToolButton" name="btn_set">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Maximum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgba(0, 255, 0, 0);</string>
+        </property>
         <property name="text">
-         <string>设置</string>
+         <string>参数
+设置</string>
+        </property>
+        <property name="icon">
+         <iconset resource="../../img.qrc">
+          <normaloff>:/img/img/set.png</normaloff>:/img/img/set.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>60</width>
+          <height>30</height>
+         </size>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QToolButton" name="toolButton_2">
+       <widget class="QToolButton" name="btn_log">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Maximum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgba(0, 255, 0, 0);</string>
+        </property>
         <property name="text">
-         <string>录音</string>
+         <string>查询
+日志</string>
+        </property>
+        <property name="icon">
+         <iconset resource="../../img.qrc">
+          <normaloff>:/img/img/log.png</normaloff>:/img/img/log.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>60</width>
+          <height>30</height>
+         </size>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QToolButton" name="toolButton_3">
-        <property name="text">
-         <string>功能3</string>
+       <widget class="QToolButton" name="btn_mp3">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Maximum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
         </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QToolButton" name="toolButton_4">
-        <property name="text">
-         <string>功能4</string>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgba(0, 255, 0, 0);</string>
         </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QToolButton" name="toolButton_5">
         <property name="text">
-         <string>功能5</string>
+         <string>录音
+文件</string>
+        </property>
+        <property name="icon">
+         <iconset resource="../../img.qrc">
+          <normaloff>:/img/img/ly.png</normaloff>:/img/img/ly.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>60</width>
+          <height>30</height>
+         </size>
         </property>
        </widget>
       </item>
      </layout>
-    </widget>
-   </item>
-   <item row="1" column="2" rowspan="2">
-    <widget class="LcdDateTime" name="lcdDateTime">
-     <property name="styleSheet">
-      <string notr="true">color: rgb(255, 255, 255);</string>
-     </property>
-     <property name="frameShape">
-      <enum>QFrame::NoFrame</enum>
-     </property>
-     <property name="segmentStyle">
-      <enum>QLCDNumber::Flat</enum>
-     </property>
-     <property name="format">
-      <string>yyyy-MM-dd HH:mm:ss</string>
-     </property>
-     <property name="digitCount">
-      <number>19</number>
-     </property>
     </widget>
    </item>
   </layout>
@@ -178,6 +217,8 @@ border-image: url(:/img/img/topTitle.png);
    <header>lcddatetime.h</header>
   </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="../../img.qrc"/>
+ </resources>
  <connections/>
 </ui>

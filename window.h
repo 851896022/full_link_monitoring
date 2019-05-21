@@ -27,8 +27,8 @@ class Window : public QMainWindow
 public:
     explicit Window(QWidget *parent = 0);
     ~Window();
-    WaveBar *waveBarDGNList[24];
-    QToolButton *logoButton[24];
+    WaveBar *waveBarDGNList[26];
+    QToolButton *logoButton[26];
 public slots:
 
     void onLogoButtonClicked(bool checked = false);

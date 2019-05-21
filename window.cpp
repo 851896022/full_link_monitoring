@@ -37,17 +37,19 @@ Window::Window(QWidget *parent) :
     waveBarDGNList[14]=ui->linkModel_2->ui->radio_1->ui->waveBar_1;
 
     waveBarDGNList[15]=ui->linkModel_2->ui->source_2->ui->waveBar_1;
-    waveBarDGNList[16]=ui->linkModel_2->ui->source_2->ui->waveBar_2;
-    waveBarDGNList[17]=ui->linkModel_2->ui->radio_2->ui->waveBar_1;
+    waveBarDGNList[18]=ui->linkModel_2->ui->source_2->ui->waveBar_2;
+    waveBarDGNList[19]=ui->linkModel_2->ui->radio_2->ui->waveBar_1;
 
-    waveBarDGNList[18]=ui->linkModel_2->ui->source_3->ui->waveBar_1;
-    waveBarDGNList[19]=ui->linkModel_2->ui->source_3->ui->waveBar_2;
-    waveBarDGNList[20]=ui->linkModel_2->ui->radio_3->ui->waveBar_1;
+    waveBarDGNList[20]=ui->linkModel_2->ui->source_3->ui->waveBar_1;
+    waveBarDGNList[21]=ui->linkModel_2->ui->source_3->ui->waveBar_2;
+    waveBarDGNList[22]=ui->linkModel_2->ui->radio_3->ui->waveBar_1;
 
-    waveBarDGNList[21]=ui->linkModel_2->ui->source_4->ui->waveBar_1;
-    waveBarDGNList[22]=ui->linkModel_2->ui->source_4->ui->waveBar_2;
-    waveBarDGNList[23]=ui->linkModel_2->ui->radio_4->ui->waveBar_1;
-
+    waveBarDGNList[23]=ui->linkModel_2->ui->source_4->ui->waveBar_1;
+    waveBarDGNList[24]=ui->linkModel_2->ui->source_4->ui->waveBar_2;
+    waveBarDGNList[25]=ui->linkModel_2->ui->radio_4->ui->waveBar_1;
+    //也new一下避免空指针报错
+    waveBarDGNList[16]=new WaveBar;
+    waveBarDGNList[17]=new WaveBar;
 
     logoButton[0]=ui->linkModel_1->ui->source_1->ui->toolButton_1;
     logoButton[1]=ui->linkModel_1->ui->source_1->ui->toolButton_2;
@@ -72,18 +74,20 @@ Window::Window(QWidget *parent) :
     logoButton[14]=ui->linkModel_2->ui->radio_1->ui->toolButton_1;
 
     logoButton[15]=ui->linkModel_2->ui->source_2->ui->toolButton_1;
-    logoButton[16]=ui->linkModel_2->ui->source_2->ui->toolButton_2;
-    logoButton[17]=ui->linkModel_2->ui->radio_2->ui->toolButton_1;
+    logoButton[18]=ui->linkModel_2->ui->source_2->ui->toolButton_2;
+    logoButton[19]=ui->linkModel_2->ui->radio_2->ui->toolButton_1;
 
-    logoButton[18]=ui->linkModel_2->ui->source_3->ui->toolButton_1;
-    logoButton[19]=ui->linkModel_2->ui->source_3->ui->toolButton_2;
-    logoButton[20]=ui->linkModel_2->ui->radio_3->ui->toolButton_1;
+    logoButton[20]=ui->linkModel_2->ui->source_3->ui->toolButton_1;
+    logoButton[21]=ui->linkModel_2->ui->source_3->ui->toolButton_2;
+    logoButton[22]=ui->linkModel_2->ui->radio_3->ui->toolButton_1;
 
-    logoButton[21]=ui->linkModel_2->ui->source_4->ui->toolButton_1;
-    logoButton[22]=ui->linkModel_2->ui->source_4->ui->toolButton_2;
-    logoButton[23]=ui->linkModel_2->ui->radio_4->ui->toolButton_1;
-
-    for(int i=0;i<24;i++)
+    logoButton[23]=ui->linkModel_2->ui->source_4->ui->toolButton_1;
+    logoButton[24]=ui->linkModel_2->ui->source_4->ui->toolButton_2;
+    logoButton[25]=ui->linkModel_2->ui->radio_4->ui->toolButton_1;
+    //也new一下避免空指针报错
+    logoButton[16]=new QToolButton;
+    logoButton[17]=new QToolButton;
+    for(int i=0;i<26;i++)
     {
         waveBarDGNList[i]->setHeadHeight(0);
         waveBarDGNList[i]->setStep(0.8);
@@ -99,6 +103,11 @@ Window::~Window()
 }
 void Window::closeEvent(QCloseEvent *event)
 {
+    g->sqlite->takeLog(/*日志内容*/"关闭软件",
+                     /*表*/"user_log",
+                     /*类型*/"log",
+                     /*用户名*/"admin"
+                     );//用户日志模板
     {
         QProcess p;
         QString c = "taskkill /im pcm_to_mp3.exe /f";
@@ -133,7 +142,7 @@ void Window::onLogoButtonClicked(bool)
 {
     int i;
     QToolButton *c=(QToolButton*)sender();
-    for(i=0;i<24;i++)
+    for(i=0;i<26;i++)
     {
         if(c==logoButton[i])
         {
@@ -162,7 +171,7 @@ void Window::onLogoButtonClicked(bool)
 }
 void Window::onRefApm()
 {
-    for(int i=0;i<24;i++)
+    for(int i=0;i<26;i++)
     {
         waveBarDGNList[i]->setValue(g->ac32Apm[i]);
     }
@@ -170,11 +179,12 @@ void Window::onRefApm()
 void Window::onRefApm(int i)
 {
     //qDebug()<<i<<g->ac32Apm[i];
+
     waveBarDGNList[i]->setValue(g->ac32Apm[i]);
 }
 void Window::onAlarm(int ch)
 {
-    if(ch<24)
+    if(ch<26)
     {
         waveBarDGNList[ch]->setBgColorStart(QColor(255,0,0));
         waveBarDGNList[ch]->setBgColorEnd(QColor(200,0,0));
@@ -183,7 +193,7 @@ void Window::onAlarm(int ch)
 }
 void Window::onAlarmCancel(int ch)
 {
-    if(ch<24)
+    if(ch<26)
     {
         waveBarDGNList[ch]->setBgColorStart(QColor(100,100,100));
         waveBarDGNList[ch]->setBgColorEnd(QColor(60,60,60));

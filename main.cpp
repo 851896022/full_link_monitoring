@@ -30,10 +30,15 @@ int main(int argc, char *argv[])
     ReAudioData *reAudioData[36];
     for(int i=0;i<36;i++)
     {
+
         reAudioData[i]=new ReAudioData;
         reAudioData[i]->moveToThread(g->reAudioDataThread[i]);
         reAudioData[i]->No=i;
         QObject::connect(g->reAudioDataThread[i],SIGNAL(started()),reAudioData[i],SLOT(initThis()));
+        if(i==16||i==17||i>25)
+        {
+            continue;
+        }
         g->reAudioDataThread[i]->start();
     }
 
@@ -57,7 +62,7 @@ int main(int argc, char *argv[])
         QEventLoop loop;
         QTimer t;
         QObject::connect(&t,SIGNAL(timeout()),&loop,SLOT(quit()));
-        t.start(3000);
+        t.start(1000);
         loop.exec();
     }
 

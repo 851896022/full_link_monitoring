@@ -6,6 +6,13 @@ GlobalSet::GlobalSet(QWidget *parent) :
     ui(new Ui::GlobalSet)
 {
     ui->setupUi(this);
+
+
+    ui->vBox_alarm->addWidget(&timeLink);
+
+
+
+
     ui->txt_name_1->setText(g->stationName);
 
     ui->txt_name_2->setText(g->receiverName[0]);
@@ -25,8 +32,36 @@ GlobalSet::GlobalSet(QWidget *parent) :
     ui->txt_name_16->setText(g->receiverName[7]);
     ui->txt_name_17->setText(g->radioName[7]);
 
-    ui->txt_delay->setText(QString::number(g->alarmDelay));
-    ui->txt_gate->setText(QString::number(g->alarmGate));
+//    ui->txt_delay->setText(QString::number(g->alarmDelay));
+//    ui->txt_gate->setText(QString::number(g->alarmGate));
+    {
+        for(int linkNo=0;linkNo<8;linkNo++)
+        {
+            timeLink.gateLink[linkNo]->setSourceGate_1(g->linkALarmGateTime[linkNo].linkGate.sourceGate_1);
+            timeLink.gateLink[linkNo]->setSourceGate_2(g->linkALarmGateTime[linkNo].linkGate.sourceGate_2);
+            timeLink.gateLink[linkNo]->setRadioGate(g->linkALarmGateTime[linkNo].linkGate.radioGate);
+
+            timeLink.gateLink[linkNo]->setSourceDelay_1(g->linkALarmGateTime[linkNo].linkGate.sourceDelay_1);
+            timeLink.gateLink[linkNo]->setSourceDelay_2(g->linkALarmGateTime[linkNo].linkGate.sourceDelay_2);
+            timeLink.gateLink[linkNo]->setRadioDelay(g->linkALarmGateTime[linkNo].linkGate.radioDelay);
+            for(int day=0;day<7;day++)
+            {
+                for(int i=0;i<5;i++)
+                {
+                    timeLink.timeWeek[linkNo]->timeDay[day]->timeLine[i]->setTime(
+                                g->linkALarmGateTime[linkNo].linkTime.day[day].line[i].startTime,
+                                g->linkALarmGateTime[linkNo].linkTime.day[day].line[i].endTime
+                                );
+
+                }
+
+            }
+        }
+
+
+
+    }
+
 
 
     ui->comboBox_xjjc_count->setCurrentIndex(g->linkCount-1);
@@ -153,6 +188,7 @@ GlobalSet::~GlobalSet()
 
 void GlobalSet::on_btn_save_clicked()
 {
+
     QSettings iniFile(QCoreApplication::applicationDirPath()+"/setSinkiang.ini", QSettings::IniFormat);
     iniFile.setIniCodec("UTF-8");
     iniFile.setValue("global/xjjc",ui->comboBox_xjjc_count->currentIndex()+1);
@@ -177,8 +213,40 @@ void GlobalSet::on_btn_save_clicked()
     radio.append(ui->txt_name_17->text());
     iniFile.setValue("global/sourceName",source);
     iniFile.setValue("global/radioName",radio);
-    iniFile.setValue("global/alarmGate",ui->txt_gate->text());
-    iniFile.setValue("global/alarmDelay",ui->txt_delay->text());
+//    iniFile.setValue("global/alarmGate",ui->txt_gate->text());
+//    iniFile.setValue("global/alarmDelay",ui->txt_delay->text());
+    //时间段+门限//时间段+门限//时间段+门限//时间段+门限//时间段+门限//
+    {
+        for(int linkNo=0;linkNo<8;linkNo++)
+        {
+            QSettings iniFile(QCoreApplication::applicationDirPath()+
+                              "/setAlarmLink"+QString::number(linkNo)+".ini", QSettings::IniFormat);
+            iniFile.setIniCodec("UTF-8");
+            iniFile.setValue("gate/sourceGate_1",timeLink.gateLink[linkNo]->sourceGate_1());
+            iniFile.setValue("gate/sourceGate_2",timeLink.gateLink[linkNo]->sourceGate_2());
+            iniFile.setValue("gate/radioGate",timeLink.gateLink[linkNo]->radioGate());
+            iniFile.setValue("delay/sourceDelay_1",timeLink.gateLink[linkNo]->sourceDelay_1());
+            iniFile.setValue("delay/sourceDelay_2",timeLink.gateLink[linkNo]->sourceDelay_2());
+            iniFile.setValue("delay/radioDelay",timeLink.gateLink[linkNo]->radioDelay());
+
+            for(int day=0;day<7;day++)
+            {
+                for(int i=0;i<5;i++)
+                {
+                    iniFile.setValue("day"+QString::number(day)+"/startTime"+QString::number(i),
+                                     timeLink.timeWeek[linkNo]->timeDay[day]->timeLine[i]->getStartTime());
+                    iniFile.setValue("day"+QString::number(day)+"/endTime"+QString::number(i),
+                                     timeLink.timeWeek[linkNo]->timeDay[day]->timeLine[i]->getEndTime());
+
+                }
+
+            }
+        }
+
+
+
+    }
+
     {
         QString filename;
         filename+=(qApp->applicationDirPath()+"/sav/equ.sav");
@@ -264,6 +332,11 @@ void GlobalSet::on_btn_save_clicked()
         file->deleteLater();
     }
     this->hide();
+    g->sqlite->takeLog(/*日志内容*/"修改配置",
+                     /*表*/"user_log",
+                     /*类型*/"log",
+                     /*用户名*/"admin"
+                     );//用户日志模板
 
 
 }
