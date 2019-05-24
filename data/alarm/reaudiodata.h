@@ -23,6 +23,7 @@ public slots:
     void initThis(int);
     void onReadyRead();
     void onTimerOut();
+    bool thisChIsWork();
 
 };
 

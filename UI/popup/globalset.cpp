@@ -32,6 +32,15 @@ GlobalSet::GlobalSet(QWidget *parent) :
     ui->txt_name_16->setText(g->receiverName[7]);
     ui->txt_name_17->setText(g->radioName[7]);
 
+    ui->checkBox_1->setChecked(g->linkIsUsing[0]);
+    ui->checkBox_2->setChecked(g->linkIsUsing[1]);
+    ui->checkBox_3->setChecked(g->linkIsUsing[2]);
+    ui->checkBox_4->setChecked(g->linkIsUsing[3]);
+    ui->checkBox_5->setChecked(g->linkIsUsing[4]);
+    ui->checkBox_6->setChecked(g->linkIsUsing[5]);
+    ui->checkBox_7->setChecked(g->linkIsUsing[6]);
+    ui->checkBox_8->setChecked(g->linkIsUsing[7]);
+
 //    ui->txt_delay->setText(QString::number(g->alarmDelay));
 //    ui->txt_gate->setText(QString::number(g->alarmGate));
     {
@@ -213,6 +222,17 @@ void GlobalSet::on_btn_save_clicked()
     radio.append(ui->txt_name_17->text());
     iniFile.setValue("global/sourceName",source);
     iniFile.setValue("global/radioName",radio);
+
+    iniFile.setValue("link/"+QString::number(0)+"isUsing",ui->checkBox_1->isChecked());
+    iniFile.setValue("link/"+QString::number(1)+"isUsing",ui->checkBox_2->isChecked());
+    iniFile.setValue("link/"+QString::number(2)+"isUsing",ui->checkBox_3->isChecked());
+    iniFile.setValue("link/"+QString::number(3)+"isUsing",ui->checkBox_4->isChecked());
+    iniFile.setValue("link/"+QString::number(4)+"isUsing",ui->checkBox_5->isChecked());
+    iniFile.setValue("link/"+QString::number(5)+"isUsing",ui->checkBox_6->isChecked());
+    iniFile.setValue("link/"+QString::number(6)+"isUsing",ui->checkBox_7->isChecked());
+    iniFile.setValue("link/"+QString::number(7)+"isUsing",ui->checkBox_8->isChecked());
+
+
 //    iniFile.setValue("global/alarmGate",ui->txt_gate->text());
 //    iniFile.setValue("global/alarmDelay",ui->txt_delay->text());
     //时间段+门限//时间段+门限//时间段+门限//时间段+门限//时间段+门限//
@@ -246,6 +266,7 @@ void GlobalSet::on_btn_save_clicked()
 
 
     }
+
 
     {
         QString filename;

@@ -89,11 +89,13 @@ Window::Window(QWidget *parent) :
     logoButton[17]=new QToolButton;
     for(int i=0;i<26;i++)
     {
-        waveBarDGNList[i]->setHeadHeight(0);
-        waveBarDGNList[i]->setStep(0.8);
+        waveBarDGNList[i]->setHeadHeight(2);
+        waveBarDGNList[i]->setStep(0);
         waveBarDGNList[i]->setSpace(3);
         connect(logoButton[i],SIGNAL(clicked(bool)),this,SLOT(onLogoButtonClicked(bool)));
     }
+    connect(&refApmTimer,SIGNAL(timeout()),this,SLOT(onRefApm()));
+    refApmTimer.start(30);
 
 }
 
@@ -173,14 +175,19 @@ void Window::onRefApm()
 {
     for(int i=0;i<26;i++)
     {
-        waveBarDGNList[i]->setValue(g->ac32Apm[i]);
+        waveBarDGNList[i]->setValue(waveBarDGNList[i]->getValue()-1);
     }
 }
 void Window::onRefApm(int i)
 {
     //qDebug()<<i<<g->ac32Apm[i];
+    if(g->ac32Apm[i]>waveBarDGNList[i]->getValue())
+    {
+        waveBarDGNList[i]->setValue(g->ac32Apm[i]);
+    }
 
-    waveBarDGNList[i]->setValue(g->ac32Apm[i]);
+
+
 }
 void Window::onAlarm(int ch)
 {

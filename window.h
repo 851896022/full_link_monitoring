@@ -29,6 +29,7 @@ public:
     ~Window();
     WaveBar *waveBarDGNList[26];
     QToolButton *logoButton[26];
+    QTimer refApmTimer;
 public slots:
 
     void onLogoButtonClicked(bool checked = false);

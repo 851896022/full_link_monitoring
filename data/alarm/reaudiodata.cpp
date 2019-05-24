@@ -60,11 +60,11 @@ void ReAudioData::onReadyRead()
         double ret=((1.42*20.0*log10(MAX)-30.0)-30.0)*1.50;
         MAX=int(ret);
         if(MAX<0)  MAX=0;
-        if(MAX>99) MAX=99+(rand()%2);
+        if(MAX>99) MAX=98+(rand()%2);
         g->ac32Apm[No]=MAX;
 
         //=============
-        if(sendCount>15)
+        if(sendCount>(15+(qrand()%10)))
         {
             sendCount=0;
             emit apmOk(No);
@@ -81,9 +81,11 @@ void ReAudioData::onReadyRead()
 void ReAudioData::onTimerOut()
 {
 
-    if(g->ac32Apm[No]>=g->alarmGate)
+
+    if(g->ac32Apm[No]>=g->chAlarmGateTime[No].alarmGate
+            || (!thisChIsWork()))
     {
-        if(alarmCount>=(g->alarmDelay*10))
+        if(alarmCount>=(g->chAlarmGateTime[No].alarmDelay*10))
         {
             emit alarmCancel(No);
         }
@@ -94,13 +96,13 @@ void ReAudioData::onTimerOut()
         alarmCount++;
     }
 
-    if(alarmCount==(g->alarmDelay*10))
+    if(alarmCount==(g->chAlarmGateTime[No].alarmDelay*10))
     {
         emit sendAlarm(No);
         int tmp=No+1;
         if(tmp>16)
         {
-            tmp-2;
+            tmp-=2;
         }
         g->sqlite->takeLog(/*日志内容*/g->getChName(No)+QString("音频幅度过低"),
                          /*表*/"alarm_log",
@@ -109,9 +111,49 @@ void ReAudioData::onTimerOut()
                          );//用户日志模板
     }
 
-    if(alarmCount>(g->alarmDelay*10))
+    if(alarmCount>(g->chAlarmGateTime[No].alarmDelay*10))
     {
-        alarmCount=(g->alarmDelay*10)+1;
+        alarmCount=(g->chAlarmGateTime[No].alarmDelay*10)+1;
     }
 
+}
+bool ReAudioData::thisChIsWork()
+{
+
+    QDateTime dt=QDateTime::currentDateTime();
+    int weekDay=dt.date().dayOfWeek()-1;
+    if(g->chAlarmGateTime[No].isUsing==true)
+    {
+        for(int i=0;i<5;i++)
+        {
+            QTime start= g->chAlarmGateTime[No].timeList->day[weekDay].line[i].startTime;
+            QTime end=g->chAlarmGateTime[No].timeList->day[weekDay].line[i].endTime;
+            if(dt.time()>=start)
+            {
+                if(end==QTime(0,0))
+                {
+                    return true;
+                }
+                else if(dt.time()<end)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+    else
+    {
+
+        return false;
+    }
+    return false;
 }

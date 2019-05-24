@@ -56,6 +56,13 @@ void Global::initThis()
             radioName[i]=radioNameList.at(i);
         }
     }
+    for(int i=0;i<8;i++)
+    {
+        if(iniFile.contains("link/"+QString::number(i)+"isUsing"))
+        {
+            linkIsUsing[i]=iniFile.value("link/"+QString::number(i)+"isUsing").toBool();
+        }
+    }
     //链路表示方法
     {
         for(int linkNo=0;linkNo<8;linkNo++)
@@ -93,106 +100,106 @@ void Global::initThis()
     chAlarmGateTime[0].alarmDelay=linkALarmGateTime[0].linkGate.sourceDelay_1;
     chAlarmGateTime[0].alarmGate=linkALarmGateTime[0].linkGate.sourceGate_1;
     chAlarmGateTime[0].timeList=&linkALarmGateTime[0].linkTime;
-    chAlarmGateTime[0].isUsing=false;//待添加
+    chAlarmGateTime[0].isUsing=linkIsUsing[0];//待添加
     chAlarmGateTime[1].alarmDelay=linkALarmGateTime[0].linkGate.sourceDelay_2;
     chAlarmGateTime[1].alarmGate=linkALarmGateTime[0].linkGate.sourceGate_2;
     chAlarmGateTime[1].timeList=&linkALarmGateTime[0].linkTime;
-    chAlarmGateTime[1].isUsing=false;//待添加
+    chAlarmGateTime[1].isUsing=linkIsUsing[0];//待添加
     chAlarmGateTime[2].alarmDelay=linkALarmGateTime[0].linkGate.radioDelay;
     chAlarmGateTime[2].alarmGate=linkALarmGateTime[0].linkGate.radioGate;
     chAlarmGateTime[2].timeList=&linkALarmGateTime[0].linkTime;
-    chAlarmGateTime[2].isUsing=false;//待添加
+    chAlarmGateTime[2].isUsing=linkIsUsing[0];//待添加
 
     chAlarmGateTime[3].alarmDelay=linkALarmGateTime[1].linkGate.sourceDelay_1;
     chAlarmGateTime[3].alarmGate=linkALarmGateTime[1].linkGate.sourceGate_1;
     chAlarmGateTime[3].timeList=&linkALarmGateTime[1].linkTime;
-    chAlarmGateTime[3].isUsing=false;//待添加
+    chAlarmGateTime[3].isUsing=linkIsUsing[1];//待添加
     chAlarmGateTime[4].alarmDelay=linkALarmGateTime[1].linkGate.sourceDelay_2;
     chAlarmGateTime[4].alarmGate=linkALarmGateTime[1].linkGate.sourceGate_2;
     chAlarmGateTime[4].timeList=&linkALarmGateTime[1].linkTime;
-    chAlarmGateTime[4].isUsing=false;//待添加
+    chAlarmGateTime[4].isUsing=linkIsUsing[1];//待添加
     chAlarmGateTime[5].alarmDelay=linkALarmGateTime[1].linkGate.radioDelay;
     chAlarmGateTime[5].alarmGate=linkALarmGateTime[1].linkGate.radioGate;
     chAlarmGateTime[5].timeList=&linkALarmGateTime[1].linkTime;
-    chAlarmGateTime[5].isUsing=false;//待添加
+    chAlarmGateTime[5].isUsing=linkIsUsing[1];//待添加
 
     chAlarmGateTime[6].alarmDelay=linkALarmGateTime[2].linkGate.sourceDelay_1;
     chAlarmGateTime[6].alarmGate=linkALarmGateTime[2].linkGate.sourceGate_1;
     chAlarmGateTime[6].timeList=&linkALarmGateTime[2].linkTime;
-    chAlarmGateTime[6].isUsing=false;//待添加
+    chAlarmGateTime[6].isUsing=linkIsUsing[2];//待添加
     chAlarmGateTime[7].alarmDelay=linkALarmGateTime[2].linkGate.sourceDelay_2;
     chAlarmGateTime[7].alarmGate=linkALarmGateTime[2].linkGate.sourceGate_2;
     chAlarmGateTime[7].timeList=&linkALarmGateTime[2].linkTime;
-    chAlarmGateTime[7].isUsing=false;//待添加
+    chAlarmGateTime[7].isUsing=linkIsUsing[2];//待添加
     chAlarmGateTime[8].alarmDelay=linkALarmGateTime[2].linkGate.radioDelay;
     chAlarmGateTime[8].alarmGate=linkALarmGateTime[2].linkGate.radioGate;
     chAlarmGateTime[8].timeList=&linkALarmGateTime[2].linkTime;
-    chAlarmGateTime[8].isUsing=false;//待添加
+    chAlarmGateTime[8].isUsing=linkIsUsing[2];//待添加
 
     chAlarmGateTime[9].alarmDelay=linkALarmGateTime[3].linkGate.sourceDelay_1;
     chAlarmGateTime[9].alarmGate=linkALarmGateTime[3].linkGate.sourceGate_1;
     chAlarmGateTime[9].timeList=&linkALarmGateTime[3].linkTime;
-    chAlarmGateTime[9].isUsing=false;//待添加
+    chAlarmGateTime[9].isUsing=linkIsUsing[3];//待添加
     chAlarmGateTime[10].alarmDelay=linkALarmGateTime[3].linkGate.sourceDelay_2;
     chAlarmGateTime[10].alarmGate=linkALarmGateTime[3].linkGate.sourceGate_2;
     chAlarmGateTime[10].timeList=&linkALarmGateTime[3].linkTime;
-    chAlarmGateTime[10].isUsing=false;//待添加
+    chAlarmGateTime[10].isUsing=linkIsUsing[3];//待添加
     chAlarmGateTime[11].alarmDelay=linkALarmGateTime[3].linkGate.radioDelay;
     chAlarmGateTime[11].alarmGate=linkALarmGateTime[3].linkGate.radioGate;
     chAlarmGateTime[11].timeList=&linkALarmGateTime[3].linkTime;
-    chAlarmGateTime[11].isUsing=false;//待添加
+    chAlarmGateTime[11].isUsing=linkIsUsing[3];//待添加
 
     chAlarmGateTime[12].alarmDelay=linkALarmGateTime[4].linkGate.sourceDelay_1;
     chAlarmGateTime[12].alarmGate=linkALarmGateTime[4].linkGate.sourceGate_1;
     chAlarmGateTime[12].timeList=&linkALarmGateTime[4].linkTime;
-    chAlarmGateTime[12].isUsing=false;//待添加
+    chAlarmGateTime[12].isUsing=linkIsUsing[4];//待添加
     chAlarmGateTime[13].alarmDelay=linkALarmGateTime[4].linkGate.sourceDelay_2;
     chAlarmGateTime[13].alarmGate=linkALarmGateTime[4].linkGate.sourceGate_2;
     chAlarmGateTime[13].timeList=&linkALarmGateTime[4].linkTime;
-    chAlarmGateTime[13].isUsing=false;//待添加
+    chAlarmGateTime[13].isUsing=linkIsUsing[4];//待添加
     chAlarmGateTime[14].alarmDelay=linkALarmGateTime[4].linkGate.radioDelay;
     chAlarmGateTime[14].alarmGate=linkALarmGateTime[4].linkGate.radioGate;
     chAlarmGateTime[14].timeList=&linkALarmGateTime[4].linkTime;
-    chAlarmGateTime[14].isUsing=false;//待添加
+    chAlarmGateTime[14].isUsing=linkIsUsing[4];//待添加
 
     chAlarmGateTime[15].alarmDelay=linkALarmGateTime[5].linkGate.sourceDelay_1;
     chAlarmGateTime[15].alarmGate=linkALarmGateTime[5].linkGate.sourceGate_1;
     chAlarmGateTime[15].timeList=&linkALarmGateTime[5].linkTime;
-    chAlarmGateTime[15].isUsing=false;//待添加
+    chAlarmGateTime[15].isUsing=linkIsUsing[5];//待添加
     chAlarmGateTime[18].alarmDelay=linkALarmGateTime[5].linkGate.sourceDelay_2;
     chAlarmGateTime[18].alarmGate=linkALarmGateTime[5].linkGate.sourceGate_2;
     chAlarmGateTime[18].timeList=&linkALarmGateTime[5].linkTime;
-    chAlarmGateTime[18].isUsing=false;//待添加
+    chAlarmGateTime[18].isUsing=linkIsUsing[5];//待添加
     chAlarmGateTime[19].alarmDelay=linkALarmGateTime[5].linkGate.radioDelay;
     chAlarmGateTime[19].alarmGate=linkALarmGateTime[5].linkGate.radioGate;
     chAlarmGateTime[19].timeList=&linkALarmGateTime[5].linkTime;
-    chAlarmGateTime[19].isUsing=false;//待添加
+    chAlarmGateTime[19].isUsing=linkIsUsing[5];//待添加
 
     chAlarmGateTime[20].alarmDelay=linkALarmGateTime[6].linkGate.sourceDelay_1;
     chAlarmGateTime[20].alarmGate=linkALarmGateTime[6].linkGate.sourceGate_1;
     chAlarmGateTime[20].timeList=&linkALarmGateTime[6].linkTime;
-    chAlarmGateTime[20].isUsing=false;//待添加
+    chAlarmGateTime[20].isUsing=linkIsUsing[6];//待添加
     chAlarmGateTime[21].alarmDelay=linkALarmGateTime[6].linkGate.sourceDelay_2;
     chAlarmGateTime[21].alarmGate=linkALarmGateTime[6].linkGate.sourceGate_2;
     chAlarmGateTime[21].timeList=&linkALarmGateTime[6].linkTime;
-    chAlarmGateTime[21].isUsing=false;//待添加
+    chAlarmGateTime[21].isUsing=linkIsUsing[6];//待添加
     chAlarmGateTime[22].alarmDelay=linkALarmGateTime[6].linkGate.radioDelay;
     chAlarmGateTime[22].alarmGate=linkALarmGateTime[6].linkGate.radioGate;
     chAlarmGateTime[22].timeList=&linkALarmGateTime[6].linkTime;
-    chAlarmGateTime[22].isUsing=false;//待添加
+    chAlarmGateTime[22].isUsing=linkIsUsing[6];//待添加
 
     chAlarmGateTime[23].alarmDelay=linkALarmGateTime[7].linkGate.sourceDelay_1;
     chAlarmGateTime[23].alarmGate=linkALarmGateTime[7].linkGate.sourceGate_1;
     chAlarmGateTime[23].timeList=&linkALarmGateTime[7].linkTime;
-    chAlarmGateTime[23].isUsing=false;//待添加
+    chAlarmGateTime[23].isUsing=linkIsUsing[7];//待添加
     chAlarmGateTime[24].alarmDelay=linkALarmGateTime[7].linkGate.sourceDelay_2;
     chAlarmGateTime[24].alarmGate=linkALarmGateTime[7].linkGate.sourceGate_2;
     chAlarmGateTime[24].timeList=&linkALarmGateTime[7].linkTime;
-    chAlarmGateTime[24].isUsing=false;//待添加
+    chAlarmGateTime[24].isUsing=linkIsUsing[7];//待添加
     chAlarmGateTime[25].alarmDelay=linkALarmGateTime[7].linkGate.radioDelay;
     chAlarmGateTime[25].alarmGate=linkALarmGateTime[7].linkGate.radioGate;
     chAlarmGateTime[25].timeList=&linkALarmGateTime[7].linkTime;
-    chAlarmGateTime[25].isUsing=false;//待添加
+    chAlarmGateTime[25].isUsing=linkIsUsing[7];//待添加
 
 
 
