@@ -22,7 +22,7 @@ void ProcessManage::initHexToPcm()
             QString workdir;
             workdir=qApp->applicationDirPath();
             QString program;
-            program="hex_to_pcm.exe";
+            program="hex_to_pcm_32ch.exe";
             QStringList arguments;
 
             QString tmp;

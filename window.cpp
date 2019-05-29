@@ -112,14 +112,14 @@ void Window::closeEvent(QCloseEvent *event)
                      );//用户日志模板
     {
         QProcess p;
-        QString c = "taskkill /im pcm_to_mp3.exe /f";
+        QString c = "taskkill /im pcm_to_mp3_32ch.exe /f";
         p.execute(c);
         p.close();
 
     }
     {
         QProcess p;
-        QString c = "taskkill /im hex_to_pcm.exe /f";
+        QString c = "taskkill /im hex_to_pcm_32ch.exe /f";
         p.execute(c);
         p.close();
 

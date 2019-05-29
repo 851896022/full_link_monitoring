@@ -80,7 +80,7 @@ void ReAudioData::onReadyRead()
 }
 void ReAudioData::onTimerOut()
 {
-
+    
 
     if(g->ac32Apm[No]>=g->chAlarmGateTime[No].alarmGate
             || (!thisChIsWork()))
