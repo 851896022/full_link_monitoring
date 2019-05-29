@@ -61,8 +61,27 @@ void Global::initThis()
         if(iniFile.contains("link/"+QString::number(i)+"isUsing"))
         {
             linkIsUsing[i]=iniFile.value("link/"+QString::number(i)+"isUsing").toBool();
+
         }
+
     }
+    {
+        QString asd;
+        for(int i=0;i<8;i++)
+        {
+            if(linkIsUsing[i])
+            {
+                asd.append("t ");
+            }
+            else
+            {
+                asd.append("f ");
+            }
+
+        }
+        qDebug()<<asd;
+    }
+
     //链路表示方法
     {
         for(int linkNo=0;linkNo<8;linkNo++)
@@ -201,7 +220,26 @@ void Global::initThis()
     chAlarmGateTime[25].timeList=&linkALarmGateTime[7].linkTime;
     chAlarmGateTime[25].isUsing=linkIsUsing[7];//待添加
 
+    {
+        QString asd;
+        for(int i=0;i<26;i++)
+        {
+            if(i==17||i==16)
+            {
+                continue;
+            }
+            if(chAlarmGateTime[i].isUsing)
+            {
+                asd.append("t ");
+            }
+            else
+            {
+                asd.append("f ");
+            }
 
+        }
+        qDebug()<<asd;
+    }
 
 
 

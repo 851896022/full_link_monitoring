@@ -80,8 +80,7 @@ void ReAudioData::onReadyRead()
 }
 void ReAudioData::onTimerOut()
 {
-
-
+    //if(No<12) qDebug()<<No<<thisChIsWork();
     if(g->ac32Apm[No]>=g->chAlarmGateTime[No].alarmGate
             || (!thisChIsWork()))
     {
@@ -120,40 +119,36 @@ void ReAudioData::onTimerOut()
 bool ReAudioData::thisChIsWork()
 {
 
+
     QDateTime dt=QDateTime::currentDateTime();
     int weekDay=dt.date().dayOfWeek()-1;
     if(g->chAlarmGateTime[No].isUsing==true)
     {
         for(int i=0;i<5;i++)
         {
+
             QTime start= g->chAlarmGateTime[No].timeList->day[weekDay].line[i].startTime;
             QTime end=g->chAlarmGateTime[No].timeList->day[weekDay].line[i].endTime;
             if(dt.time()>=start)
             {
                 if(end==QTime(0,0))
                 {
-
+                    //if(No<12)qDebug()<<No<<"符合时段"<<i;
                     return true;
                 }
                 else if(dt.time()<end)
                 {
+                    //if(No<12)qDebug()<<No<<"符合时段"<<i;
                     return true;
-                }
-                else
-                {
-                    return false;
                 }
 
             }
-            else
-            {
-                return false;
-            }
         }
+        //if(No<12)qDebug()<<No<<"没有符合时段";
     }
     else
     {
-
+        //if(No<12)qDebug()<<No<<"没有启用？？？";
         return false;
     }
     return false;
