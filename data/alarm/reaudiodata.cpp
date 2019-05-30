@@ -61,6 +61,26 @@ void ReAudioData::onReadyRead()
         MAX=int(ret);
         if(MAX<0)  MAX=0;
         if(MAX>99) MAX=98+(rand()%2);
+        if(MAX<=1)
+        {
+            apmCount--;
+            if(apmCount<=0)
+            {
+                apmCount=0;
+            }
+        }
+        else
+        {
+            apmCount++;
+            if(apmCount>100)
+            {
+                apmCount=100;
+            }
+        }
+        if(apmCount<50)
+        {
+            MAX=0;
+        }
         g->ac32Apm[No]=MAX;
 
         //=============

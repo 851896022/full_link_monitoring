@@ -91,6 +91,6 @@ LIBS        += -L$$PWD/sdk/ -lquc
 unix {LIBS  += -L$$PWD/sdk/ -lquc}
 else {LIBS  += -L$$PWD/sdk/ -lqucd}
 }
-
+RC_ICONS = ggd512.ico
 RESOURCES += \
     img.qrc

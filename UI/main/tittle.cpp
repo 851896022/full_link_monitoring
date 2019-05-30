@@ -26,6 +26,10 @@ void Tittle::resizeEvent(QResizeEvent *event)
     QFont tmp= ui->name->font();
     tmp.setPointSizeF(this->geometry().height()*0.3);
     ui->name->setFont(tmp);
+
+    ui->btn_set->setIconSize(QSize(this->geometry().height()*1.6,this->geometry().height()*0.8));
+    ui->btn_log->setIconSize(QSize(this->geometry().height()*1.6,this->geometry().height()*0.8));
+    ui->btn_mp3->setIconSize(QSize(this->geometry().height()*1.6,this->geometry().height()*0.8));
 }
 
 void Tittle::on_btn_set_clicked()

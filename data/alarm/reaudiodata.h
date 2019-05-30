@@ -14,6 +14,7 @@ public:
     int sendCount=0;
     int alarmCount=0;
     QTimer * timer;
+    int apmCount=0;
 signals:
     void apmOk(int ch);
     void sendAlarm(int ch);
@@ -24,6 +25,7 @@ public slots:
     void onReadyRead();
     void onTimerOut();
     bool thisChIsWork();
+
 
 };
 
