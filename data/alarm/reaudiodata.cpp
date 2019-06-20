@@ -57,7 +57,8 @@ void ReAudioData::onReadyRead()
         }
         g->maxValue[No]=MAX;
         if(MAX<150) MAX=1;
-        double ret=((1.42*20.0*log10(MAX)-30.0)-30.0)*1.50;
+        double ret=((1.42*20.0*log10(MAX)-30.0)-30.0)*1.50+12;
+
         MAX=int(ret);
         if(MAX<0)  MAX=0;
         if(MAX>99) MAX=98+(rand()%2);
@@ -81,7 +82,7 @@ void ReAudioData::onReadyRead()
         {
             MAX=0;
         }
-        g->ac32Apm[No]=MAX;
+        g->ac32Apm[No]=MAX;//得到数值不要
 
         //=============
         if(sendCount>(15+(qrand()%10)))

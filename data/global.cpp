@@ -342,6 +342,18 @@ void Global::loadEqu()
 }
 void Global::changePlayCh(int ch)
 {
+
+    {
+        QString str;
+        for(int i=0;i<35;i++)
+        {
+            str.append(QString::number(g->ac32Apm[i]));
+            str.append("  ");
+
+        }
+        qDebug()<<str;
+    }
+
     player->tempBuffer.clear();
     if(receivePCM->state()==QAbstractSocket::BoundState)
     {

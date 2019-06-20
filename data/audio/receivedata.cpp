@@ -25,7 +25,7 @@ void ReceiveData::onReceived()
             {
             case 0://APM
                 {
-                    break;//不用这个APM了，使用音频算出的APM
+                    //break;//不用这个APM了，使用音频算出的APM//还是继续用吧，音频有问题
 
                     int num=rData.at(1).toInt();
                     for(int i=0;i<18;i++)
@@ -33,6 +33,7 @@ void ReceiveData::onReceived()
                         g->ac32Apm[num*18+i]=rData.at(i+2).toInt();
 
                     }
+                    //qDebug()<<rData;
                     emit apmRef();
                     break;
                 }
