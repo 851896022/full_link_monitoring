@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
     loop.exec();
 
     ReceiveData *receiveData=new ReceiveData;
-    //receiveData->initThis();
+    receiveData->initThis();
 
     ProcessManage *processManage=new ProcessManage;
     processManage->initHexToPcm();

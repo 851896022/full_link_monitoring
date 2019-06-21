@@ -82,7 +82,7 @@ void ReAudioData::onReadyRead()
         {
             MAX=0;
         }
-        g->ac32Apm[No]=MAX;//得到数值不要
+        //g->ac32Apm[No]=MAX;//得到数值不要
 
         //=============
         if(sendCount>(15+(qrand()%10)))
