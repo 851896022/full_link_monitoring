@@ -189,12 +189,14 @@ void Window::onRefApm(int i)
 
 
 }
+#include <QSound>
 void Window::onAlarm(int ch)
 {
     if(ch<26)
     {
         waveBarDGNList[ch]->setBgColorStart(QColor(255,0,0));
         waveBarDGNList[ch]->setBgColorEnd(QColor(200,0,0));
+        QSound::play(qApp->applicationDirPath()+"/alarm.wav");
     }
 
 }
