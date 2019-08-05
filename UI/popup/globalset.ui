@@ -23,7 +23,7 @@
    <item>
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>0</number>
+      <number>4</number>
      </property>
      <widget class="QWidget" name="tab">
       <attribute name="title">
@@ -982,100 +982,378 @@
        <string>其他</string>
       </attribute>
       <layout class="QGridLayout" name="gridLayout_3">
-       <item row="2" column="0" colspan="2">
-        <spacer name="verticalSpacer_3">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>313</width>
-           <height>417</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="0" column="0">
-        <widget class="QLabel" name="label_35">
-         <property name="text">
-          <string>音频前端个数</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="1">
-        <widget class="QComboBox" name="comboBox_xjjc_count">
-         <item>
-          <property name="text">
-           <string>1台</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>2台</string>
-          </property>
-         </item>
-        </widget>
-       </item>
-       <item row="1" column="0" colspan="2">
+       <item row="0" column="0" colspan="2">
         <widget class="QGroupBox" name="groupBox_4">
          <property name="title">
-          <string>启用通道</string>
+          <string>启用通路</string>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_4">
           <item>
            <widget class="QCheckBox" name="checkBox_1">
             <property name="text">
-             <string>音频链路通道1</string>
+             <string>音频链路通路1</string>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QCheckBox" name="checkBox_2">
             <property name="text">
-             <string>音频链路通道2</string>
+             <string>音频链路通路2</string>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QCheckBox" name="checkBox_3">
             <property name="text">
-             <string>音频链路通道3</string>
+             <string>音频链路通路3</string>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QCheckBox" name="checkBox_4">
             <property name="text">
-             <string>音频链路通道4</string>
+             <string>音频链路通路4</string>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QCheckBox" name="checkBox_5">
             <property name="text">
-             <string>音频链路通道5</string>
+             <string>音频链路通路5</string>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QCheckBox" name="checkBox_6">
             <property name="text">
-             <string>音频链路通道6</string>
+             <string>音频链路通路6</string>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QCheckBox" name="checkBox_7">
             <property name="text">
-             <string>音频链路通道7</string>
+             <string>音频链路通路7</string>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QCheckBox" name="checkBox_8">
             <property name="text">
-             <string>音频链路通道8</string>
+             <string>音频链路通路8</string>
             </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="1" column="0" colspan="2">
+        <widget class="QGroupBox" name="groupBox_5">
+         <property name="title">
+          <string>音频线接口</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_9">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_12">
+            <item>
+             <widget class="QLabel" name="label_18">
+              <property name="styleSheet">
+               <string notr="true">border:1px solid #000000</string>
+              </property>
+              <property name="text">
+               <string>通路1主用卫星接收机：输入01</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_19">
+              <property name="styleSheet">
+               <string notr="true">border:1px solid #000000</string>
+              </property>
+              <property name="text">
+               <string>通路1备用卫星接收机：输入02</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_20">
+              <property name="styleSheet">
+               <string notr="true">border:1px solid #000000</string>
+              </property>
+              <property name="text">
+               <string>通路1空收：输入03</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_13">
+            <item>
+             <widget class="QLabel" name="label_21">
+              <property name="styleSheet">
+               <string notr="true">border:1px solid #000000</string>
+              </property>
+              <property name="text">
+               <string>通路2主用卫星接收机：输入04</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_35">
+              <property name="styleSheet">
+               <string notr="true">border:1px solid #000000</string>
+              </property>
+              <property name="text">
+               <string>通路2备用卫星接收机：输入05</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_36">
+              <property name="styleSheet">
+               <string notr="true">border:1px solid #000000</string>
+              </property>
+              <property name="text">
+               <string>通路2空收：输入06</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_14">
+            <item>
+             <widget class="QLabel" name="label_37">
+              <property name="styleSheet">
+               <string notr="true">border:1px solid #000000</string>
+              </property>
+              <property name="text">
+               <string>通路3主用卫星接收机：输入07</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_38">
+              <property name="styleSheet">
+               <string notr="true">border:1px solid #000000</string>
+              </property>
+              <property name="text">
+               <string>通路3备用卫星接收机：输入08</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_39">
+              <property name="styleSheet">
+               <string notr="true">border:1px solid #000000</string>
+              </property>
+              <property name="text">
+               <string>通路3空收：输入09</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_15">
+            <item>
+             <widget class="QLabel" name="label_40">
+              <property name="styleSheet">
+               <string notr="true">border:1px solid #000000</string>
+              </property>
+              <property name="text">
+               <string>通路4主用卫星接收机：输入10</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_41">
+              <property name="styleSheet">
+               <string notr="true">border:1px solid #000000</string>
+              </property>
+              <property name="text">
+               <string>通路4备用卫星接收机：输入11</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_42">
+              <property name="styleSheet">
+               <string notr="true">border:1px solid #000000</string>
+              </property>
+              <property name="text">
+               <string>通路4空收：输入12</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_16">
+            <item>
+             <widget class="QLabel" name="label_43">
+              <property name="styleSheet">
+               <string notr="true">border:1px solid #000000</string>
+              </property>
+              <property name="text">
+               <string>通路5主用卫星接收机：输入13</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_44">
+              <property name="styleSheet">
+               <string notr="true">border:1px solid #000000</string>
+              </property>
+              <property name="text">
+               <string>通路5备用卫星接收机：输入14</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_45">
+              <property name="styleSheet">
+               <string notr="true">border:1px solid #000000</string>
+              </property>
+              <property name="text">
+               <string>通路5空收：输入15</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_17">
+            <item>
+             <widget class="QLabel" name="label_46">
+              <property name="styleSheet">
+               <string notr="true">border:1px solid #000000</string>
+              </property>
+              <property name="text">
+               <string>通路6主用卫星接收机：输入16</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_47">
+              <property name="styleSheet">
+               <string notr="true">border:1px solid #000000</string>
+              </property>
+              <property name="text">
+               <string>通路6备用卫星接收机：输入17</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_48">
+              <property name="styleSheet">
+               <string notr="true">border:1px solid #000000</string>
+              </property>
+              <property name="text">
+               <string>通路5空收：输入18</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_18">
+            <item>
+             <widget class="QLabel" name="label_49">
+              <property name="styleSheet">
+               <string notr="true">border:1px solid #000000</string>
+              </property>
+              <property name="text">
+               <string>通路7主用卫星接收机：输入19</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_50">
+              <property name="styleSheet">
+               <string notr="true">border:1px solid #000000</string>
+              </property>
+              <property name="text">
+               <string>通路7备用卫星接收机：输入20</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_51">
+              <property name="styleSheet">
+               <string notr="true">border:1px solid #000000</string>
+              </property>
+              <property name="text">
+               <string>通路7空收：输入21</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_20">
+            <item>
+             <widget class="QLabel" name="label_55">
+              <property name="styleSheet">
+               <string notr="true">border:1px solid #000000</string>
+              </property>
+              <property name="text">
+               <string>通路8主用卫星接收机：输入22</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_56">
+              <property name="styleSheet">
+               <string notr="true">border:1px solid #000000</string>
+              </property>
+              <property name="text">
+               <string>通路8备用卫星接收机：输入23</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_57">
+              <property name="styleSheet">
+               <string notr="true">border:1px solid #000000</string>
+              </property>
+              <property name="text">
+               <string>通路8空收：输入24</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QComboBox" name="comboBox_xjjc_count">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Ignored" vsizetype="Ignored">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>1</pointsize>
+             </font>
+            </property>
+            <item>
+             <property name="text">
+              <string>1</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>2</string>
+             </property>
+            </item>
            </widget>
           </item>
          </layout>

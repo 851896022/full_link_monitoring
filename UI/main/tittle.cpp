@@ -31,15 +31,27 @@ void Tittle::resizeEvent(QResizeEvent *event)
     ui->btn_log->setIconSize(QSize(this->geometry().height()*1.6,this->geometry().height()*0.8));
     ui->btn_mp3->setIconSize(QSize(this->geometry().height()*1.6,this->geometry().height()*0.8));
 }
-
+#include <QInputDialog>
 void Tittle::on_btn_set_clicked()
 {
-    globalSet->deleteLater();
-    globalSet= new GlobalSet;
-    globalSet->setWindowFlags(globalSet->windowFlags()  |   Qt::WindowStaysOnTopHint);
-    globalSet->show();
-    globalSet->raise();
-    globalSet->activateWindow();
+    bool ok;
+    QString text = QInputDialog::getText(this, tr("请输入操作密码"),
+                                          tr("密码:"), QLineEdit::Normal,
+                                          QDir::home().dirName(), &ok);
+    if (ok && !text.isEmpty())
+    {
+        if(text==QString("admin"))
+        {
+            globalSet->deleteLater();
+            globalSet= new GlobalSet;
+            globalSet->setWindowFlags(globalSet->windowFlags()  |   Qt::WindowStaysOnTopHint);
+            globalSet->show();
+            globalSet->raise();
+            globalSet->activateWindow();
+        }
+    }
+
+
 }
 #include <QDesktopServices>
 void Tittle::on_btn_mp3_clicked()

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1024</width>
-    <height>768</height>
+    <width>1920</width>
+    <height>1080</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -41,22 +41,19 @@ border-image: url(:/img/img/background.png);
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_2">
         <property name="spacing">
-         <number>10</number>
-        </property>
-        <property name="sizeConstraint">
-         <enum>QLayout::SetNoConstraint</enum>
+         <number>0</number>
         </property>
         <property name="leftMargin">
-         <number>10</number>
+         <number>0</number>
         </property>
         <property name="topMargin">
          <number>0</number>
         </property>
         <property name="rightMargin">
-         <number>10</number>
+         <number>0</number>
         </property>
         <property name="bottomMargin">
-         <number>10</number>
+         <number>0</number>
         </property>
         <item>
          <widget class="Tittle" name="title">
@@ -96,6 +93,24 @@ border-image: url(:/img/img/background.png);
         </item>
         <item>
          <widget class="LinkModel" name="linkModel_2"/>
+        </item>
+        <item>
+         <widget class="LinkModel" name="linkModel_3"/>
+        </item>
+        <item>
+         <widget class="LinkModel" name="linkModel_4"/>
+        </item>
+        <item>
+         <widget class="LinkModel" name="linkModel_5"/>
+        </item>
+        <item>
+         <widget class="LinkModel" name="linkModel_6"/>
+        </item>
+        <item>
+         <widget class="LinkModel" name="linkModel_7"/>
+        </item>
+        <item>
+         <widget class="LinkModel" name="linkModel_8"/>
         </item>
         <item>
          <spacer name="verticalSpacer_2">

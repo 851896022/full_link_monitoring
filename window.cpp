@@ -7,46 +7,49 @@ Window::Window(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    if(g->linkCount<2)
-    {
-        ui->linkModel_2->hide();
-    }
+
     ui->linkModel_1->initThis(0);
     ui->linkModel_2->initThis(1);
+    ui->linkModel_3->initThis(2);
+    ui->linkModel_4->initThis(3);
+    ui->linkModel_5->initThis(4);
+    ui->linkModel_6->initThis(5);
+    ui->linkModel_7->initThis(6);
+    ui->linkModel_8->initThis(7);
 
     waveBarDGNList[0]=ui->linkModel_1->ui->source_1->ui->waveBar_1;
     waveBarDGNList[1]=ui->linkModel_1->ui->source_1->ui->waveBar_2;
     waveBarDGNList[2]=ui->linkModel_1->ui->radio_1->ui->waveBar_1;
 
-    waveBarDGNList[3]=ui->linkModel_1->ui->source_2->ui->waveBar_1;
-    waveBarDGNList[4]=ui->linkModel_1->ui->source_2->ui->waveBar_2;
-    waveBarDGNList[5]=ui->linkModel_1->ui->radio_2->ui->waveBar_1;
+    waveBarDGNList[3]=ui->linkModel_2->ui->source_1->ui->waveBar_1;
+    waveBarDGNList[4]=ui->linkModel_2->ui->source_1->ui->waveBar_2;
+    waveBarDGNList[5]=ui->linkModel_2->ui->radio_1->ui->waveBar_1;
 
-    waveBarDGNList[6]=ui->linkModel_1->ui->source_3->ui->waveBar_1;
-    waveBarDGNList[7]=ui->linkModel_1->ui->source_3->ui->waveBar_2;
-    waveBarDGNList[8]=ui->linkModel_1->ui->radio_3->ui->waveBar_1;
+    waveBarDGNList[6]=ui->linkModel_3->ui->source_1->ui->waveBar_1;
+    waveBarDGNList[7]=ui->linkModel_3->ui->source_1->ui->waveBar_2;
+    waveBarDGNList[8]=ui->linkModel_3->ui->radio_1->ui->waveBar_1;
 
-    waveBarDGNList[9]=ui->linkModel_1->ui->source_4->ui->waveBar_1;
-    waveBarDGNList[10]=ui->linkModel_1->ui->source_4->ui->waveBar_2;
-    waveBarDGNList[11]=ui->linkModel_1->ui->radio_4->ui->waveBar_1;
+    waveBarDGNList[9]=ui->linkModel_4->ui->source_1->ui->waveBar_1;
+    waveBarDGNList[10]=ui->linkModel_4->ui->source_1->ui->waveBar_2;
+    waveBarDGNList[11]=ui->linkModel_4->ui->radio_1->ui->waveBar_1;
 
 
 
-    waveBarDGNList[12]=ui->linkModel_2->ui->source_1->ui->waveBar_1;
-    waveBarDGNList[13]=ui->linkModel_2->ui->source_1->ui->waveBar_2;
-    waveBarDGNList[14]=ui->linkModel_2->ui->radio_1->ui->waveBar_1;
+    waveBarDGNList[12]=ui->linkModel_5->ui->source_1->ui->waveBar_1;
+    waveBarDGNList[13]=ui->linkModel_5->ui->source_1->ui->waveBar_2;
+    waveBarDGNList[14]=ui->linkModel_5->ui->radio_1->ui->waveBar_1;
 
-    waveBarDGNList[15]=ui->linkModel_2->ui->source_2->ui->waveBar_1;
-    waveBarDGNList[18]=ui->linkModel_2->ui->source_2->ui->waveBar_2;
-    waveBarDGNList[19]=ui->linkModel_2->ui->radio_2->ui->waveBar_1;
+    waveBarDGNList[15]=ui->linkModel_6->ui->source_1->ui->waveBar_1;
+    waveBarDGNList[18]=ui->linkModel_6->ui->source_1->ui->waveBar_2;
+    waveBarDGNList[19]=ui->linkModel_6->ui->radio_1->ui->waveBar_1;
 
-    waveBarDGNList[20]=ui->linkModel_2->ui->source_3->ui->waveBar_1;
-    waveBarDGNList[21]=ui->linkModel_2->ui->source_3->ui->waveBar_2;
-    waveBarDGNList[22]=ui->linkModel_2->ui->radio_3->ui->waveBar_1;
+    waveBarDGNList[20]=ui->linkModel_7->ui->source_1->ui->waveBar_1;
+    waveBarDGNList[21]=ui->linkModel_7->ui->source_1->ui->waveBar_2;
+    waveBarDGNList[22]=ui->linkModel_7->ui->radio_1->ui->waveBar_1;
 
-    waveBarDGNList[23]=ui->linkModel_2->ui->source_4->ui->waveBar_1;
-    waveBarDGNList[24]=ui->linkModel_2->ui->source_4->ui->waveBar_2;
-    waveBarDGNList[25]=ui->linkModel_2->ui->radio_4->ui->waveBar_1;
+    waveBarDGNList[23]=ui->linkModel_8->ui->source_1->ui->waveBar_1;
+    waveBarDGNList[24]=ui->linkModel_8->ui->source_1->ui->waveBar_2;
+    waveBarDGNList[25]=ui->linkModel_8->ui->radio_1->ui->waveBar_1;
     //也new一下避免空指针报错
     waveBarDGNList[16]=new WaveBar;
     waveBarDGNList[17]=new WaveBar;
@@ -55,35 +58,35 @@ Window::Window(QWidget *parent) :
     logoButton[1]=ui->linkModel_1->ui->source_1->ui->toolButton_2;
     logoButton[2]=ui->linkModel_1->ui->radio_1->ui->toolButton_1;
 
-    logoButton[3]=ui->linkModel_1->ui->source_2->ui->toolButton_1;
-    logoButton[4]=ui->linkModel_1->ui->source_2->ui->toolButton_2;
-    logoButton[5]=ui->linkModel_1->ui->radio_2->ui->toolButton_1;
+    logoButton[3]=ui->linkModel_2->ui->source_1->ui->toolButton_1;
+    logoButton[4]=ui->linkModel_2->ui->source_1->ui->toolButton_2;
+    logoButton[5]=ui->linkModel_2->ui->radio_1->ui->toolButton_1;
 
-    logoButton[6]=ui->linkModel_1->ui->source_3->ui->toolButton_1;
-    logoButton[7]=ui->linkModel_1->ui->source_3->ui->toolButton_2;
-    logoButton[8]=ui->linkModel_1->ui->radio_3->ui->toolButton_1;
+    logoButton[6]=ui->linkModel_3->ui->source_1->ui->toolButton_1;
+    logoButton[7]=ui->linkModel_3->ui->source_1->ui->toolButton_2;
+    logoButton[8]=ui->linkModel_3->ui->radio_1->ui->toolButton_1;
 
-    logoButton[9]=ui->linkModel_1->ui->source_4->ui->toolButton_1;
-    logoButton[10]=ui->linkModel_1->ui->source_4->ui->toolButton_2;
-    logoButton[11]=ui->linkModel_1->ui->radio_4->ui->toolButton_1;
+    logoButton[9]=ui->linkModel_4->ui->source_1->ui->toolButton_1;
+    logoButton[10]=ui->linkModel_4->ui->source_1->ui->toolButton_2;
+    logoButton[11]=ui->linkModel_4->ui->radio_1->ui->toolButton_1;
 
 
 
-    logoButton[12]=ui->linkModel_2->ui->source_1->ui->toolButton_1;
-    logoButton[13]=ui->linkModel_2->ui->source_1->ui->toolButton_2;
-    logoButton[14]=ui->linkModel_2->ui->radio_1->ui->toolButton_1;
+    logoButton[12]=ui->linkModel_5->ui->source_1->ui->toolButton_1;
+    logoButton[13]=ui->linkModel_5->ui->source_1->ui->toolButton_2;
+    logoButton[14]=ui->linkModel_5->ui->radio_1->ui->toolButton_1;
 
-    logoButton[15]=ui->linkModel_2->ui->source_2->ui->toolButton_1;
-    logoButton[18]=ui->linkModel_2->ui->source_2->ui->toolButton_2;
-    logoButton[19]=ui->linkModel_2->ui->radio_2->ui->toolButton_1;
+    logoButton[15]=ui->linkModel_6->ui->source_1->ui->toolButton_1;
+    logoButton[18]=ui->linkModel_6->ui->source_1->ui->toolButton_2;
+    logoButton[19]=ui->linkModel_6->ui->radio_1->ui->toolButton_1;
 
-    logoButton[20]=ui->linkModel_2->ui->source_3->ui->toolButton_1;
-    logoButton[21]=ui->linkModel_2->ui->source_3->ui->toolButton_2;
-    logoButton[22]=ui->linkModel_2->ui->radio_3->ui->toolButton_1;
+    logoButton[20]=ui->linkModel_7->ui->source_1->ui->toolButton_1;
+    logoButton[21]=ui->linkModel_7->ui->source_1->ui->toolButton_2;
+    logoButton[22]=ui->linkModel_7->ui->radio_1->ui->toolButton_1;
 
-    logoButton[23]=ui->linkModel_2->ui->source_4->ui->toolButton_1;
-    logoButton[24]=ui->linkModel_2->ui->source_4->ui->toolButton_2;
-    logoButton[25]=ui->linkModel_2->ui->radio_4->ui->toolButton_1;
+    logoButton[23]=ui->linkModel_8->ui->source_1->ui->toolButton_1;
+    logoButton[24]=ui->linkModel_8->ui->source_1->ui->toolButton_2;
+    logoButton[25]=ui->linkModel_8->ui->radio_1->ui->toolButton_1;
     //也new一下避免空指针报错
     logoButton[16]=new QToolButton;
     logoButton[17]=new QToolButton;

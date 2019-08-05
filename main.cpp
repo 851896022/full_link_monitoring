@@ -67,5 +67,15 @@ int main(int argc, char *argv[])
     }
 
     w.show();
+
+    {
+        QEventLoop loop;
+        QTimer t;
+        QObject::connect(&t,SIGNAL(timeout()),&loop,SLOT(quit()));
+        t.start(100);
+        loop.exec();
+    }
+
+    w.showMaximized();
     return a.exec();
 }
